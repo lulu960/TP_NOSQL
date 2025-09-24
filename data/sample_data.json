@@ -1,0 +1,3480 @@
+{
+  "products": [
+    {
+      "_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "type": "product",
+      "name": "Smartphone XY Pro",
+      "category": "Electronics",
+      "price": 699.99,
+      "description": "Latest smartphone with advanced features",
+      "status": "active",
+      "metadata": {
+        "brand": "TechCorp",
+        "warranty": "2 years",
+        "color": "Black"
+      },
+      "created_at": "2025-09-24T09:45:54.407281+00:00",
+      "updated_at": "2025-09-24T09:45:54.407281+00:00",
+      "version": 1,
+      "price_category": "premium",
+      "search_keywords": [
+        "features",
+        "latest",
+        "advanced",
+        "with",
+        "pro",
+        "electronics",
+        "xy",
+        "smartphone"
+      ]
+    },
+    {
+      "_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "type": "product",
+      "name": "Coffee Maker Deluxe",
+      "category": "Home & Kitchen",
+      "price": 89.99,
+      "description": "Programmable coffee maker with timer",
+      "status": "active",
+      "metadata": {
+        "capacity": "12 cups",
+        "material": "Stainless Steel"
+      },
+      "created_at": "2025-09-24T09:45:54.407281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1,
+      "price_category": "mid-range",
+      "search_keywords": [
+        "timer",
+        "maker",
+        "programmable",
+        "with",
+        "&",
+        "deluxe",
+        "home",
+        "kitchen",
+        "coffee"
+      ]
+    },
+    {
+      "_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "type": "product",
+      "name": "Wireless Headphones",
+      "category": "Electronics",
+      "price": 199.99,
+      "description": "Noise-canceling wireless headphones",
+      "status": "active",
+      "metadata": {
+        "battery_life": "30 hours",
+        "wireless": true
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1,
+      "price_category": "mid-range",
+      "search_keywords": [
+        "headphones",
+        "wireless",
+        "electronics",
+        "noise-canceling"
+      ]
+    },
+    {
+      "_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "type": "product",
+      "name": "Yoga Mat Premium",
+      "category": "Sports & Fitness",
+      "price": 49.99,
+      "description": "Non-slip yoga mat with carrying strap",
+      "status": "active",
+      "metadata": {
+        "thickness": "6mm",
+        "material": "TPE"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1,
+      "price_category": "budget",
+      "search_keywords": [
+        "strap",
+        "sports",
+        "yoga",
+        "with",
+        "fitness",
+        "non-slip",
+        "&",
+        "premium",
+        "carrying",
+        "mat"
+      ]
+    },
+    {
+      "_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "type": "product",
+      "name": "LED Desk Lamp",
+      "category": "Home & Kitchen",
+      "price": 35.99,
+      "description": "Adjustable LED desk lamp with USB charging",
+      "status": "active",
+      "metadata": {
+        "power": "12W",
+        "adjustable": true
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1,
+      "price_category": "budget",
+      "search_keywords": [
+        "charging",
+        "adjustable",
+        "lamp",
+        "led",
+        "with",
+        "desk",
+        "usb",
+        "&",
+        "home",
+        "kitchen"
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "type": "customer",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@email.com",
+      "phone": "+1-555-0101",
+      "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "metadata": {},
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "type": "customer",
+      "name": "Bob Smith",
+      "email": "bob.smith@email.com",
+      "phone": "+1-555-0102",
+      "address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "metadata": {},
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "type": "customer",
+      "name": "Carol Davis",
+      "email": "carol.davis@email.com",
+      "phone": "+1-555-0103",
+      "address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "metadata": {},
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    }
+  ],
+  "orders": [
+    {
+      "_id": "order_2a0a0da6-ffca-4e3f-babf-7f07269b2320",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 2,
+          "unit_price": 199.99,
+          "total_price": 399.98
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 3,
+          "unit_price": 89.99,
+          "total_price": 269.96999999999997
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 2,
+          "unit_price": 49.99,
+          "total_price": 99.98
+        }
+      ],
+      "total": 769.93,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-02T09:45:54.408281+00:00",
+      "updated_at": "2025-09-02T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_0ef1b9eb-60c7-480f-8939-8f43efc63ecc",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        }
+      ],
+      "total": 2107.92,
+      "status": "pending",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_4b35bed9-4db9-48d4-bd87-bb58fde66db9",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        }
+      ],
+      "total": 1399.98,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-09T09:45:54.408281+00:00",
+      "updated_at": "2025-09-09T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_787ce655-dbfb-4a69-8643-5bfc13c71fa4",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 1,
+          "unit_price": 199.99,
+          "total_price": 199.99
+        }
+      ],
+      "total": 2999.95,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-07-15T09:45:54.408281+00:00",
+      "updated_at": "2025-07-15T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_dc54867c-e21d-4e58-9fa3-185bf0813aec",
+      "type": "order",
+      "customer_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 1,
+          "unit_price": 699.99,
+          "total_price": 699.99
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        }
+      ],
+      "total": 2099.97,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "created_at": "2025-08-20T09:45:54.408281+00:00",
+      "updated_at": "2025-08-20T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_578f34a1-e06a-4946-bd09-4f7dfe74a8d6",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 1,
+          "unit_price": 199.99,
+          "total_price": 199.99
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        }
+      ],
+      "total": 907.93,
+      "status": "pending",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_e42dd7f0-8eaf-4435-8615-079c187dd01a",
+      "type": "order",
+      "customer_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 1,
+          "unit_price": 699.99,
+          "total_price": 699.99
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 2,
+          "unit_price": 89.99,
+          "total_price": 179.98
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        }
+      ],
+      "total": 1479.94,
+      "status": "delivered",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "created_at": "2025-09-18T09:45:54.408281+00:00",
+      "updated_at": "2025-09-18T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_4d1cae45-b616-459d-b4b8-9ad01721f982",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 1,
+          "unit_price": 699.99,
+          "total_price": 699.99
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 3,
+          "unit_price": 699.99,
+          "total_price": 2099.9700000000003
+        }
+      ],
+      "total": 3435.92,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-08-06T09:45:54.408281+00:00",
+      "updated_at": "2025-08-06T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_ea156a00-fb69-42b5-beb4-465a0571137a",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        }
+      ],
+      "total": 49.99,
+      "status": "delivered",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-01T09:45:54.408281+00:00",
+      "updated_at": "2025-09-01T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_81872e5c-72ef-4327-bcdd-539b59afba31",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 1,
+          "unit_price": 199.99,
+          "total_price": 199.99
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        }
+      ],
+      "total": 449.94,
+      "status": "pending",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-06-28T09:45:54.408281+00:00",
+      "updated_at": "2025-06-28T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_3f50aab1-9820-4ecb-a16c-13afcbd8c9c4",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 2,
+          "unit_price": 199.99,
+          "total_price": 399.98
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 2,
+          "unit_price": 89.99,
+          "total_price": 179.98
+        }
+      ],
+      "total": 795.9,
+      "status": "pending",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_3ac42913-bf37-40b5-988f-0eb7dfe55497",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 2,
+          "unit_price": 35.99,
+          "total_price": 71.98
+        }
+      ],
+      "total": 229.94,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_6842e999-98e8-4aa8-9fbd-87b2f3e76559",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 1,
+          "unit_price": 199.99,
+          "total_price": 199.99
+        }
+      ],
+      "total": 199.99,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-07-14T09:45:54.408281+00:00",
+      "updated_at": "2025-07-14T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_ab479c03-77e8-4884-a96f-a9cf62b4dfd3",
+      "type": "order",
+      "customer_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "products": [
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        }
+      ],
+      "total": 149.97,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_ab554787-e2e7-4c02-8bad-dc20beecab8f",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 2,
+          "unit_price": 199.99,
+          "total_price": 399.98
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        }
+      ],
+      "total": 1199.91,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_d85bd0ac-c22d-4f94-bbbd-d757b60f856e",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        }
+      ],
+      "total": 257.94,
+      "status": "pending",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_5f8aa4df-68cd-4cde-93ed-0ab00b0db322",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 1,
+          "unit_price": 49.99,
+          "total_price": 49.99
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 1,
+          "unit_price": 89.99,
+          "total_price": 89.99
+        }
+      ],
+      "total": 283.94,
+      "status": "pending",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_6c19a47d-eb3c-4d6d-a24f-25b64d3080ca",
+      "type": "order",
+      "customer_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 2,
+          "unit_price": 35.99,
+          "total_price": 71.98
+        }
+      ],
+      "total": 71.98,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "created_at": "2025-07-04T09:45:54.408281+00:00",
+      "updated_at": "2025-07-04T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_8d21fceb-1393-47d3-ab0c-c61b820c3803",
+      "type": "order",
+      "customer_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "products": [
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 2,
+          "unit_price": 89.99,
+          "total_price": 179.98
+        }
+      ],
+      "total": 179.98,
+      "status": "cancelled",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001",
+        "country": "USA"
+      },
+      "created_at": "2025-09-20T09:45:54.408281+00:00",
+      "updated_at": "2025-09-20T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_fcc42884-550f-4dcc-8819-61cf686e1f81",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 3,
+          "unit_price": 89.99,
+          "total_price": 269.96999999999997
+        },
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 3,
+          "unit_price": 199.99,
+          "total_price": 599.97
+        }
+      ],
+      "total": 1505.9,
+      "status": "cancelled",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_67a31d9d-ac1b-47a8-ab5e-4a523c3f056f",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 1,
+          "unit_price": 699.99,
+          "total_price": 699.99
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 3,
+          "unit_price": 89.99,
+          "total_price": 269.96999999999997
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 1,
+          "unit_price": 89.99,
+          "total_price": 89.99
+        }
+      ],
+      "total": 1059.95,
+      "status": "delivered",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_d650cc70-c64a-4acb-b81a-8d854e260220",
+      "type": "order",
+      "customer_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 1,
+          "unit_price": 89.99,
+          "total_price": 89.99
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 2,
+          "unit_price": 699.99,
+          "total_price": 1399.98
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        }
+      ],
+      "total": 1675.93,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "zip": "90210",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_53f27a8f-9357-4fa2-97ff-984b852a622b",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+          "product_name": "Coffee Maker Deluxe",
+          "quantity": 1,
+          "unit_price": 89.99,
+          "total_price": 89.99
+        }
+      ],
+      "total": 89.99,
+      "status": "delivered",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-06-28T09:45:54.408281+00:00",
+      "updated_at": "2025-06-28T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_189baaba-3dbb-46c0-a539-7af7d96bb6ce",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+          "product_name": "Wireless Headphones",
+          "quantity": 2,
+          "unit_price": 199.99,
+          "total_price": 399.98
+        },
+        {
+          "product_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+          "product_name": "Yoga Mat Premium",
+          "quantity": 3,
+          "unit_price": 49.99,
+          "total_price": 149.97
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 3,
+          "unit_price": 35.99,
+          "total_price": 107.97
+        }
+      ],
+      "total": 657.92,
+      "status": "shipped",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "order_c1dad3a0-c46f-4aaf-b6ff-c250f1967cec",
+      "type": "order",
+      "customer_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "products": [
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+          "product_name": "LED Desk Lamp",
+          "quantity": 1,
+          "unit_price": 35.99,
+          "total_price": 35.99
+        },
+        {
+          "product_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+          "product_name": "Smartphone XY Pro",
+          "quantity": 1,
+          "unit_price": 699.99,
+          "total_price": 699.99
+        }
+      ],
+      "total": 771.97,
+      "status": "confirmed",
+      "shipping_address": {
+        "street": "789 Pine St",
+        "city": "Chicago",
+        "zip": "60601",
+        "country": "USA"
+      },
+      "created_at": "2025-09-24T09:45:54.408281+00:00",
+      "updated_at": "2025-09-24T09:45:54.408281+00:00",
+      "version": 1
+    }
+  ],
+  "events": [
+    {
+      "_id": "event_8ae0ef45-90cd-4e88-98b9-4de9378db82c",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T16:45:54.408281+00:00",
+      "created_at": "2025-09-01T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_9d5a8658-0d14-44f9-9de0-19be30bae124",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-16T08:45:54.408281+00:00",
+      "created_at": "2025-09-16T08:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_dbcb0376-6698-42ff-abd4-e7601df99f0d",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T22:45:54.408281+00:00",
+      "created_at": "2025-09-01T22:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_0a6cc55f-e9af-4b94-819c-8f4363087c3d",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T16:45:54.408281+00:00",
+      "created_at": "2025-09-01T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_c4cb5cc0-0fc9-4729-9808-db35fab6d87e",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-21T14:45:54.408281+00:00",
+      "created_at": "2025-09-21T14:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_67fcbe3d-7fc2-4078-a2a0-b6a2fec11f9e",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T09:45:54.408281+00:00",
+      "created_at": "2025-09-01T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_5cd6aff4-4308-4475-a6a1-f526b2b031c6",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_0ef1b9eb-60c7-480f-8939-8f43efc63ecc",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 2107.92,
+        "product_count": 3
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-13T09:45:54.408281+00:00",
+      "created_at": "2025-09-13T09:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2386e834-d6d1-4a57-8f1d-a3d67f135338",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_4b35bed9-4db9-48d4-bd87-bb58fde66db9",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1399.98,
+        "product_count": 1
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T18:45:54.408281+00:00",
+      "created_at": "2025-09-01T18:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_d24dfa86-9940-4243-8603-7251d5808ece",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-07T08:45:54.408281+00:00",
+      "created_at": "2025-09-07T08:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_5b492b92-59b8-4aa5-8356-d9a4a9efb529",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-14T14:45:54.408281+00:00",
+      "created_at": "2025-09-14T14:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2f47729e-5f3d-4b27-88ba-8848f66f6d51",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-15T17:45:54.408281+00:00",
+      "created_at": "2025-09-15T17:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_76cdfb20-adca-459c-bac6-cbe9548a16f8",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T17:45:54.408281+00:00",
+      "created_at": "2025-09-21T17:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bc78ba9e-0a3a-47a6-b1aa-e7f5ad9aa581",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-14T21:45:54.408281+00:00",
+      "created_at": "2025-09-14T21:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_b9fae605-194d-4ae6-81f1-4989259f6b64",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-05T16:45:54.408281+00:00",
+      "created_at": "2025-09-05T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4b0db12b-c1e3-4f5e-813b-9b2bc160a805",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-11T16:45:54.408281+00:00",
+      "created_at": "2025-09-11T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_f3ad9a86-f292-43f9-bcb5-272ee518c592",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-03T22:45:54.408281+00:00",
+      "created_at": "2025-09-03T22:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_e4f85cde-4530-4169-a6b1-3508007a9b06",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-17T13:45:54.408281+00:00",
+      "created_at": "2025-09-17T13:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_441e324e-28bb-469a-b7f8-669e0da8cb4a",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_fcc42884-550f-4dcc-8819-61cf686e1f81",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1505.9,
+        "product_count": 4
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-03T20:45:54.408281+00:00",
+      "created_at": "2025-09-03T20:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4a651cd2-6ef9-4fca-bae4-556702635d2e",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-11T16:45:54.408281+00:00",
+      "created_at": "2025-09-11T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_0038b216-a7f7-4d96-b0fc-f8820ab20777",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-22T10:45:54.408281+00:00",
+      "created_at": "2025-09-22T10:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_ba744bd9-4850-45a5-8126-d2120fd4854d",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T14:45:54.408281+00:00",
+      "created_at": "2025-09-01T14:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_c6bf81a1-a27a-42de-b475-931c44334f8f",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_6842e999-98e8-4aa8-9fbd-87b2f3e76559",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 199.99,
+        "product_count": 1
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-17T17:45:54.408281+00:00",
+      "created_at": "2025-09-17T17:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2a554de8-f71f-47e5-a8e0-12c82d7e4847",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-23T18:45:54.408281+00:00",
+      "created_at": "2025-09-23T18:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2a1631e6-8058-4a7b-9909-3c3dd84f8cfc",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-17T15:45:54.408281+00:00",
+      "created_at": "2025-09-17T15:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2eec7cdb-c0ef-46a5-9164-0628cbe07dc0",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T16:45:54.408281+00:00",
+      "created_at": "2025-09-21T16:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_631b41e2-f63d-4ae1-ad5b-8eb8e02bc446",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-21T14:45:54.408281+00:00",
+      "created_at": "2025-09-21T14:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_acc87da2-a19e-4c75-ab53-f67f09e345fc",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_d650cc70-c64a-4acb-b81a-8d854e260220",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1675.93,
+        "product_count": 4
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-08T13:45:54.408281+00:00",
+      "created_at": "2025-09-08T13:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_e8b9ae28-a6d5-4537-9448-9b1493211fad",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_4d1cae45-b616-459d-b4b8-9ad01721f982",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 3435.92,
+        "product_count": 4
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T13:45:54.408281+00:00",
+      "created_at": "2025-09-01T13:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bed1653e-5dbd-4050-9668-d915f52661f5",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-06T14:45:54.408281+00:00",
+      "created_at": "2025-09-06T14:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3e313e8e-2342-4a82-be10-44c275373d04",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T17:45:54.408281+00:00",
+      "created_at": "2025-09-21T17:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3e62d197-5b91-41a5-baed-de7b85491690",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T22:45:54.408281+00:00",
+      "created_at": "2025-09-01T22:45:54.408281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_026b2388-b126-44c7-a7d8-f949deb35bf8",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-16T13:45:54.409281+00:00",
+      "created_at": "2025-09-16T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_b78f0c97-cff9-4297-ae10-db1de2c2c316",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_5f8aa4df-68cd-4cde-93ed-0ab00b0db322",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 283.94,
+        "product_count": 4
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-22T17:45:54.409281+00:00",
+      "created_at": "2025-09-22T17:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_6e942e9b-c710-449f-8bfd-5ea2bf409a2a",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-11T13:45:54.409281+00:00",
+      "created_at": "2025-09-11T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_b55ea0fa-1df0-4b35-ac5e-3cae128278f0",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T18:45:54.409281+00:00",
+      "created_at": "2025-09-21T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_6fa3c97a-aec9-4e18-ac9e-14b66711787d",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_0ef1b9eb-60c7-480f-8939-8f43efc63ecc",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 2107.92,
+        "product_count": 3
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-07T14:45:54.409281+00:00",
+      "created_at": "2025-09-07T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_653fdf4e-2e1c-446d-aebc-fa1bc19b42f8",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-14T15:45:54.409281+00:00",
+      "created_at": "2025-09-14T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_c8688ee8-66da-40f5-8530-ee8543b6ba20",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-15T09:45:54.409281+00:00",
+      "created_at": "2025-09-15T09:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_28d26eb0-64fd-4190-986b-63ff14285e59",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T15:45:54.409281+00:00",
+      "created_at": "2025-09-01T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a25617d1-1d61-4f1c-af1c-074e0fd9ac8d",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-14T21:45:54.409281+00:00",
+      "created_at": "2025-09-14T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_53b5a189-7706-47d2-b6ac-635720f19b52",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-08T19:45:54.409281+00:00",
+      "created_at": "2025-09-08T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_10a2405f-5764-4a4c-88a0-9baf30d8c65f",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-10T16:45:54.409281+00:00",
+      "created_at": "2025-09-10T16:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2580d7c4-268e-44c0-86a8-cb73f30643af",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_53f27a8f-9357-4fa2-97ff-984b852a622b",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 89.99,
+        "product_count": 1
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-14T16:45:54.409281+00:00",
+      "created_at": "2025-09-14T16:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3dfada54-6a97-4495-89d7-d4c07b74b5bd",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_4d1cae45-b616-459d-b4b8-9ad01721f982",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 3435.92,
+        "product_count": 4
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-21T13:45:54.409281+00:00",
+      "created_at": "2025-09-21T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_38f56cdb-89f1-4bff-89f8-64fcb5b02f7b",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-05T19:45:54.409281+00:00",
+      "created_at": "2025-09-05T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_8699252c-42f1-4c6d-80a4-69c8b02ee0d7",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_ab554787-e2e7-4c02-8bad-dc20beecab8f",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1199.91,
+        "product_count": 4
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-24T12:45:54.409281+00:00",
+      "created_at": "2025-09-24T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_6ad29b0f-668c-46e8-8a4d-4cc826919d7b",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T10:45:54.409281+00:00",
+      "created_at": "2025-09-01T10:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2109335b-b87c-445c-a838-650e1bd0f67f",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-10T19:45:54.409281+00:00",
+      "created_at": "2025-09-10T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_5a12143c-806d-44d2-990e-f43e81d20f9d",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T18:45:54.409281+00:00",
+      "created_at": "2025-09-01T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_f0b58aca-1244-42e6-82b9-d897629d779b",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T18:45:54.409281+00:00",
+      "created_at": "2025-09-01T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_b8d94eb7-e10f-4977-b341-85a0b81ea80f",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_67a31d9d-ac1b-47a8-ab5e-4a523c3f056f",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1059.95,
+        "product_count": 3
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-19T14:45:54.409281+00:00",
+      "created_at": "2025-09-19T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4594afc2-3024-42c1-b5ad-d26948b2730c",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-04T14:45:54.409281+00:00",
+      "created_at": "2025-09-04T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_ee0577f1-9990-4748-9f18-008c28229e68",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_5f8aa4df-68cd-4cde-93ed-0ab00b0db322",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 283.94,
+        "product_count": 4
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-19T19:45:54.409281+00:00",
+      "created_at": "2025-09-19T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_7267ae72-8511-4d4f-9b35-74ee9d40197d",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-08T14:45:54.409281+00:00",
+      "created_at": "2025-09-08T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_72509702-a319-4331-b6ef-7246ef6b9282",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-02T08:45:54.409281+00:00",
+      "created_at": "2025-09-02T08:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_94ef8e10-3201-4ca4-9628-eed40fbc7b3f",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-11T20:45:54.409281+00:00",
+      "created_at": "2025-09-11T20:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_8fc9d684-9809-4ec1-acef-3bf9349c273d",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-19T15:45:54.409281+00:00",
+      "created_at": "2025-09-19T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_19e37859-c2ea-4eab-a03f-f5735ae34e64",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-11T13:45:54.409281+00:00",
+      "created_at": "2025-09-11T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bd10492a-3009-4385-8b09-09109f7a460e",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T12:45:54.409281+00:00",
+      "created_at": "2025-09-01T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_731c8cc1-5245-4d4b-b3ad-6ebe228cbc5a",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_c1dad3a0-c46f-4aaf-b6ff-c250f1967cec",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 771.97,
+        "product_count": 3
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T21:45:54.409281+00:00",
+      "created_at": "2025-09-01T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_af253c79-e898-4831-a365-fe3a584d8904",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_0ef1b9eb-60c7-480f-8939-8f43efc63ecc",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 2107.92,
+        "product_count": 3
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T18:45:54.409281+00:00",
+      "created_at": "2025-09-01T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_7a5b386c-ce46-49b5-b9ad-0bde7006801b",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_3f50aab1-9820-4ecb-a16c-13afcbd8c9c4",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 795.9,
+        "product_count": 4
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-08T22:45:54.409281+00:00",
+      "created_at": "2025-09-08T22:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_ac19e30e-5657-410e-b239-8df141c2112c",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-06T14:45:54.409281+00:00",
+      "created_at": "2025-09-06T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4e735604-32c8-449d-baa0-df3ff13feb79",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T16:45:54.409281+00:00",
+      "created_at": "2025-09-01T16:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_391cc13f-a81b-4d36-b2f3-0889e21b38a3",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-17T16:45:54.409281+00:00",
+      "created_at": "2025-09-17T16:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_507dd71c-d21f-4db0-aff3-28c3d61b766c",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-08T22:45:54.409281+00:00",
+      "created_at": "2025-09-08T22:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_40b42375-2d34-43f0-a88e-dfb6561a95f0",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-17T21:45:54.409281+00:00",
+      "created_at": "2025-09-17T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a8d55034-1865-4200-959b-7412d5239492",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-04T21:45:54.409281+00:00",
+      "created_at": "2025-09-04T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_dc79167c-5a44-4b05-b062-4de4fd865772",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-19T12:45:54.409281+00:00",
+      "created_at": "2025-09-19T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_09047a6d-8097-4e1f-abcd-8b9b946701b5",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T22:45:54.409281+00:00",
+      "created_at": "2025-09-01T22:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_fa174621-0b0d-4393-9325-c0b9cbd52073",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-18T20:45:54.409281+00:00",
+      "created_at": "2025-09-18T20:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_32ebb4d1-541e-4198-b601-065e6c8cf4bb",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_8d21fceb-1393-47d3-ab0c-c61b820c3803",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 179.98,
+        "product_count": 1
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-17T12:45:54.409281+00:00",
+      "created_at": "2025-09-17T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_194cd0d1-e744-4564-87c5-70a62ee1ef0c",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-16T09:45:54.409281+00:00",
+      "created_at": "2025-09-16T09:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_377ae817-fb70-46dd-8f68-99f1af74ec2d",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-17T21:45:54.409281+00:00",
+      "created_at": "2025-09-17T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2080d3fe-eae4-4eec-bd93-f65a8d4a938d",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-20T19:45:54.409281+00:00",
+      "created_at": "2025-09-20T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_714b29c6-c3b3-43a9-a3ab-cb24a4096a1e",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-04T17:45:54.409281+00:00",
+      "created_at": "2025-09-04T17:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_14b887c2-3d7b-48f8-826c-a89369962bb1",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_787ce655-dbfb-4a69-8643-5bfc13c71fa4",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 2999.95,
+        "product_count": 3
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-20T12:45:54.409281+00:00",
+      "created_at": "2025-09-20T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_5707514b-aa8e-433d-819d-a1d87abc1bf1",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_6842e999-98e8-4aa8-9fbd-87b2f3e76559",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 199.99,
+        "product_count": 1
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-22T19:45:54.409281+00:00",
+      "created_at": "2025-09-22T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_fe26f63a-3185-4d83-9779-fa17ef44ea92",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-14T20:45:54.409281+00:00",
+      "created_at": "2025-09-14T20:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bf7c6f03-aa7c-4b23-bb2c-d946ed5a5610",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T15:45:54.409281+00:00",
+      "created_at": "2025-09-01T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_0d7ee8ea-aa5b-4d1d-a480-50f4ac9f6eb0",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T21:45:54.409281+00:00",
+      "created_at": "2025-09-01T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_1763de11-4809-4932-a63d-4372c6d19dae",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-24T18:45:54.409281+00:00",
+      "created_at": "2025-09-24T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_cff00884-a4bd-43ae-af6b-d317874b604e",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T08:45:54.409281+00:00",
+      "created_at": "2025-09-01T08:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_c55f2f4a-6a75-439d-89ae-12bcfae3ef47",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-13T21:45:54.409281+00:00",
+      "created_at": "2025-09-13T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bb70b067-c535-4fcd-86b1-a673376b735f",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-16T13:45:54.409281+00:00",
+      "created_at": "2025-09-16T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_d3677d8a-76a6-42ed-b1b3-91e15924c1a5",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-17T12:45:54.409281+00:00",
+      "created_at": "2025-09-17T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_54cd5011-433e-43c6-92fc-95af6ebf7bce",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-16T15:45:54.409281+00:00",
+      "created_at": "2025-09-16T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_0698721d-f363-42ac-a6e2-47714b02fa4c",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T14:45:54.409281+00:00",
+      "created_at": "2025-09-01T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_f48fc2ed-709e-476a-9709-20e311ae4e51",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_ab554787-e2e7-4c02-8bad-dc20beecab8f",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1199.91,
+        "product_count": 4
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-12T08:45:54.409281+00:00",
+      "created_at": "2025-09-12T08:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_e191e09e-cb99-41f6-81f0-8a88f330e89c",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_3f50aab1-9820-4ecb-a16c-13afcbd8c9c4",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 795.9,
+        "product_count": 4
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-13T19:45:54.409281+00:00",
+      "created_at": "2025-09-13T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_df230491-8513-4107-8c0a-c6b6c249b8f4",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T11:45:54.409281+00:00",
+      "created_at": "2025-09-21T11:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_fed9f256-141d-4980-98dd-252e2105bded",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-07T21:45:54.409281+00:00",
+      "created_at": "2025-09-07T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bf6d0065-8a00-4475-8631-42282ce64e2e",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-09T17:45:54.409281+00:00",
+      "created_at": "2025-09-09T17:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_17e34402-0bcf-4b34-a4db-812043d1a542",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-21T14:45:54.409281+00:00",
+      "created_at": "2025-09-21T14:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_0f4953c9-8f6a-4388-9d2f-c45da6795df4",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T08:45:54.409281+00:00",
+      "created_at": "2025-09-01T08:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_f0a883ba-4e90-41a3-a0ce-90b6cf062a20",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T13:45:54.409281+00:00",
+      "created_at": "2025-09-01T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_208e49c2-ff39-48b3-a0ea-b0712c2975d5",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-23T12:45:54.409281+00:00",
+      "created_at": "2025-09-23T12:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_9b240669-3920-49f1-8194-99eafbdac9d0",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T18:45:54.409281+00:00",
+      "created_at": "2025-09-01T18:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_23bb45d4-b654-487b-a1a3-f69d9ef502e1",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-13T13:45:54.409281+00:00",
+      "created_at": "2025-09-13T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_081d5663-4d58-4d5b-8f60-4cfacc2dea2b",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-11T08:45:54.409281+00:00",
+      "created_at": "2025-09-11T08:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_949dd550-6cd9-4b3e-83bf-1649767d61b8",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-19T16:45:54.409281+00:00",
+      "created_at": "2025-09-19T16:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_36f58936-142d-4d12-87d8-c2df2c8c5774",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_c1dad3a0-c46f-4aaf-b6ff-c250f1967cec",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 771.97,
+        "product_count": 3
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-21T20:45:54.409281+00:00",
+      "created_at": "2025-09-21T20:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_67349e63-416e-48a7-8eb7-25596501659b",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-12T19:45:54.409281+00:00",
+      "created_at": "2025-09-12T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_86b3adba-4ab2-4293-8e23-1b932659172c",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T19:45:54.409281+00:00",
+      "created_at": "2025-09-01T19:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a3c15f49-a6c7-4056-b4fe-044c727b5954",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-13T10:45:54.409281+00:00",
+      "created_at": "2025-09-13T10:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3aca4952-3db1-4627-b1a6-86cd1496e45d",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_5f8aa4df-68cd-4cde-93ed-0ab00b0db322",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 283.94,
+        "product_count": 4
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-15T09:45:54.409281+00:00",
+      "created_at": "2025-09-15T09:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_7463a4e6-cae6-4995-a653-c8c28ad6b3b6",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T13:45:54.409281+00:00",
+      "created_at": "2025-09-01T13:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_ea1379c8-032a-4460-9df8-80838257e925",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-20T15:45:54.409281+00:00",
+      "created_at": "2025-09-20T15:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_24241577-b1de-4981-9721-62be4cf05225",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-23T21:45:54.409281+00:00",
+      "created_at": "2025-09-23T21:45:54.409281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4bd1c8dd-5e11-4c02-a248-78abd4ca25ef",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T17:45:54.410281+00:00",
+      "created_at": "2025-09-01T17:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4a0fa92c-5ed9-4980-8b07-75134edfa333",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-18T09:45:54.410281+00:00",
+      "created_at": "2025-09-18T09:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_237f9775-1ddf-4926-bad1-185999f61ccf",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-12T10:45:54.410281+00:00",
+      "created_at": "2025-09-12T10:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_068915b0-2788-4082-a4a8-59bf9fc4edf5",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T19:45:54.410281+00:00",
+      "created_at": "2025-09-01T19:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_8755acf1-a103-4970-9967-1b39c5dcec04",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_c1dad3a0-c46f-4aaf-b6ff-c250f1967cec",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 771.97,
+        "product_count": 3
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-13T10:45:54.410281+00:00",
+      "created_at": "2025-09-13T10:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_b944ce7e-b37d-491e-a26f-94fa29260966",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-17T17:45:54.410281+00:00",
+      "created_at": "2025-09-17T17:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_95b69079-d1c3-47d0-975d-53b96208fc57",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T21:45:54.410281+00:00",
+      "created_at": "2025-09-01T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3d13b44a-70a0-4bde-98de-31083b6050a9",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_3ac42913-bf37-40b5-988f-0eb7dfe55497",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 229.94,
+        "product_count": 3
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-18T08:45:54.410281+00:00",
+      "created_at": "2025-09-18T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2e286bd7-c865-4654-9053-607f5f5e0f37",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-05T14:45:54.410281+00:00",
+      "created_at": "2025-09-05T14:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_7f4f07d0-5433-429b-8a54-ac9b7bfcad5e",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_6c19a47d-eb3c-4d6d-a24f-25b64d3080ca",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 71.98,
+        "product_count": 1
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T21:45:54.410281+00:00",
+      "created_at": "2025-09-01T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_22252bdd-e097-4292-a8d2-fa8fe395397a",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-17T16:45:54.410281+00:00",
+      "created_at": "2025-09-17T16:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_4af1e8d7-10e1-4d6d-8dc6-8bf3f9539df7",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-23T15:45:54.410281+00:00",
+      "created_at": "2025-09-23T15:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_09b5434f-581e-41dd-8e0f-6a946040e9d4",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-07T21:45:54.410281+00:00",
+      "created_at": "2025-09-07T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_6a65f4f4-3b24-4679-a83a-52539e087e98",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T16:45:54.410281+00:00",
+      "created_at": "2025-09-01T16:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a8821267-63a5-4b4d-b415-a2856d154832",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-14T10:45:54.410281+00:00",
+      "created_at": "2025-09-14T10:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_cd4ac5a0-4c30-4289-b5cb-271cfd676a34",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-12T21:45:54.410281+00:00",
+      "created_at": "2025-09-12T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_d3b40b0b-0169-4c58-97b3-06bf546d7f17",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-10T13:45:54.410281+00:00",
+      "created_at": "2025-09-10T13:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_be7f4e09-ec08-4236-ab81-d9ad445218e0",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_0ef1b9eb-60c7-480f-8939-8f43efc63ecc",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 2107.92,
+        "product_count": 3
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T08:45:54.410281+00:00",
+      "created_at": "2025-09-01T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_970a340c-e828-48e1-8e15-2dc1db48e3c0",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-16T20:45:54.410281+00:00",
+      "created_at": "2025-09-16T20:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_90d8cf2c-9569-42b3-8530-2bd4ceea11ea",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-08T08:45:54.410281+00:00",
+      "created_at": "2025-09-08T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_887c1fd4-f7de-4406-9a0e-2b504879db4c",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T20:45:54.410281+00:00",
+      "created_at": "2025-09-01T20:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_893cac0d-2e19-417f-be3d-84105059662e",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-20T21:45:54.410281+00:00",
+      "created_at": "2025-09-20T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3e9411a9-f268-402d-b179-1851e855e6c9",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T18:45:54.410281+00:00",
+      "created_at": "2025-09-01T18:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_625879f1-9c6b-4997-bbfe-d27e05c2b257",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-01T08:45:54.410281+00:00",
+      "created_at": "2025-09-01T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3c184747-d45f-4057-a0b4-a9a1353d458d",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T13:45:54.410281+00:00",
+      "created_at": "2025-09-01T13:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_bef78359-b7f6-4c35-92af-9befd35df134",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-09T15:45:54.410281+00:00",
+      "created_at": "2025-09-09T15:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3fce8355-38db-47e1-9794-495a9d8622d9",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-13T11:45:54.410281+00:00",
+      "created_at": "2025-09-13T11:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a8933809-635d-45bb-bf9e-a7c007821561",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_2a0a0da6-ffca-4e3f-babf-7f07269b2320",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 769.93,
+        "product_count": 3
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T10:45:54.410281+00:00",
+      "created_at": "2025-09-01T10:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_829e3724-7edf-43d2-a547-584d31c5aa13",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_67a31d9d-ac1b-47a8-ab5e-4a523c3f056f",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1059.95,
+        "product_count": 3
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-14T08:45:54.410281+00:00",
+      "created_at": "2025-09-14T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_d0bfd544-4adb-450e-acd5-898d51f23361",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T16:45:54.410281+00:00",
+      "created_at": "2025-09-01T16:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_2fbd5a4d-88f9-46c9-b82c-3711802e3ef1",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-09T12:45:54.410281+00:00",
+      "created_at": "2025-09-09T12:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_a625f39d-2cb2-4740-9385-afa353a550eb",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-07T18:45:54.410281+00:00",
+      "created_at": "2025-09-07T18:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_051a03c0-e6b6-4916-82bc-f2967832def0",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-09T08:45:54.410281+00:00",
+      "created_at": "2025-09-09T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_744113d0-3d1d-43ba-97e4-bb093b395feb",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-01T20:45:54.410281+00:00",
+      "created_at": "2025-09-01T20:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_7d955e8f-da9c-425c-9c15-b33eb9f97c5b",
+      "type": "analytics_event",
+      "event_type": "product_view",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-09T08:45:54.410281+00:00",
+      "created_at": "2025-09-09T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_c013e973-17ee-4018-841f-5014a8247775",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5bafb7c9-5062-4204-bb23-41a2ed99a109",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Smartphone XY Pro",
+        "product_category": "Electronics",
+        "product_price": 699.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-15T18:45:54.410281+00:00",
+      "created_at": "2025-09-15T18:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_96821173-46b0-42d3-b198-7298538bfbd8",
+      "type": "analytics_event",
+      "event_type": "remove_from_cart",
+      "entity_id": "product_5df6cce6-0515-4098-8d79-7ddc5247b9b6",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Coffee Maker Deluxe",
+        "product_category": "Home & Kitchen",
+        "product_price": 89.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T08:45:54.410281+00:00",
+      "created_at": "2025-09-01T08:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_03e14f7a-2524-4fd9-b547-51880d120eca",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_d6fd2741-f579-408d-ab1f-48c8182980d4",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Yoga Mat Premium",
+        "product_category": "Sports & Fitness",
+        "product_price": 49.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-21T20:45:54.410281+00:00",
+      "created_at": "2025-09-21T20:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_3baae3e5-1683-4226-bc04-10d34557becb",
+      "type": "analytics_event",
+      "event_type": "purchase",
+      "entity_id": "order_67a31d9d-ac1b-47a8-ab5e-4a523c3f056f",
+      "entity_type": "order",
+      "event_data": {
+        "order_total": 1059.95,
+        "product_count": 3
+      },
+      "user_id": "customer_96abc6f1-69de-49ae-ac8e-a5d33e4e5668",
+      "timestamp": "2025-09-16T22:45:54.410281+00:00",
+      "created_at": "2025-09-16T22:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_28a670c0-fb99-40bb-bda8-170217fb67e1",
+      "type": "analytics_event",
+      "event_type": "search",
+      "entity_id": "product_307a9642-b30c-4e13-ba06-a21434da36a8",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "Wireless Headphones",
+        "product_category": "Electronics",
+        "product_price": 199.99
+      },
+      "user_id": "customer_0ea5c9f3-8799-4537-842f-a1227df11ca9",
+      "timestamp": "2025-09-07T21:45:54.410281+00:00",
+      "created_at": "2025-09-07T21:45:54.410281+00:00",
+      "version": 1
+    },
+    {
+      "_id": "event_cb26112b-d896-4b0f-bf7f-30a8f71cf924",
+      "type": "analytics_event",
+      "event_type": "add_to_cart",
+      "entity_id": "product_9d19a352-1d9b-456d-99ff-2b816650e3b1",
+      "entity_type": "product",
+      "event_data": {
+        "product_name": "LED Desk Lamp",
+        "product_category": "Home & Kitchen",
+        "product_price": 35.99
+      },
+      "user_id": "customer_f90a6bea-7cea-46f0-9ec5-3b0d0b8857a5",
+      "timestamp": "2025-09-01T19:45:54.410281+00:00",
+      "created_at": "2025-09-01T19:45:54.410281+00:00",
+      "version": 1
+    }
+  ]
+}
