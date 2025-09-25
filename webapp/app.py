@@ -135,28 +135,28 @@ def create_kpi_cards(sales_data, customer_data, product_data):
 
     with col1:
         st.metric(
-            label="Total Orders",
+            label="Total Commandes",
             value=sales_data.get("total_orders", 0),
             delta=f"+{sales_data.get('total_orders', 0) - 20}"  # Mock delta
         )
 
     with col2:
         st.metric(
-            label="Total Revenue",
-            value=f"${sales_data.get('total_revenue', 0):,.2f}",
+            label="Chiffre d'Affaires Total",
+            value=f"{sales_data.get('total_revenue', 0):,.2f} €",
             delta=f"+{sales_data.get('total_revenue', 0) * 0.1:.2f}"  # Mock 10% increase
         )
 
     with col3:
         st.metric(
-            label="Average Order Value",
-            value=f"${sales_data.get('average_order_value', 0):.2f}",
+            label="Valeur Moyenne Commande",
+            value=f"{sales_data.get('average_order_value', 0):.2f} €",
             delta=f"+{sales_data.get('average_order_value', 0) * 0.05:.2f}"  # Mock 5% increase
         )
 
     with col4:
         st.metric(
-            label="Total Customers",
+            label="Total Clients",
             value=customer_data.get("total_customers", 0),
             delta=f"+{customer_data.get('active_customers', 0) - customer_data.get('total_customers', 0) + 5}"  # Mock delta
         )
@@ -391,6 +391,143 @@ def create_customer_analysis_chart(customer_data):
 
     st.plotly_chart(fig, use_container_width=True)
 
+@st.cache_data(ttl=300)
+def get_product_categories(_db_client):
+    """Get all distinct product categories from database"""
+    if not _db_client:
+        return []
+
+    try:
+        # Get all products to extract categories
+        result = _db_client.find({"type": "product"}, limit=1000)
+        if result["success"]:
+            categories = set()
+            for product in result["documents"]:
+                category = product.get("category", "").strip()
+                if category:
+                    categories.add(category)
+            return sorted(list(categories))
+        else:
+            return []
+    except Exception as e:
+        return []
+
+@st.cache_data(ttl=300)
+def get_available_products(_db_client):
+    """Get all available products for order creation"""
+    if not _db_client:
+        return {}
+
+    try:
+        # Get all active products
+        result = _db_client.find({"type": "product", "status": "active"}, limit=1000)
+        if result["success"]:
+            products = {}
+            for product in result["documents"]:
+                product_id = product.get("_id", "")
+                name = product.get("name", "Produit sans nom")
+                price = product.get("price", 0.0)
+                category = product.get("category", "N/A")
+
+                # Create a user-friendly display name
+                display_name = f"{name} - {category} ({price:.2f} €)"
+                products[display_name] = {
+                    "id": product_id,
+                    "name": name,
+                    "price": price,
+                    "category": category
+                }
+            return products
+        else:
+            return {}
+    except Exception as e:
+        return {}
+
+@st.cache_data(ttl=300)
+def get_all_products(_db_client):
+    """Get all products for update interface"""
+    if not _db_client:
+        return {}
+
+    try:
+        result = _db_client.find({"type": "product"}, limit=1000)
+        if result["success"]:
+            products = {}
+            for product in result["documents"]:
+                product_id = product.get("_id", "")
+                name = product.get("name", "Produit sans nom")
+                price = product.get("price", 0.0)
+                category = product.get("category", "N/A")
+                status = product.get("status", "active")
+
+                # Create a user-friendly display name
+                display_name = f"{name} - {category} ({price:.2f} €) [{status}]"
+                products[display_name] = {
+                    "id": product_id,
+                    "document": product
+                }
+            return products
+        else:
+            return {}
+    except Exception as e:
+        return {}
+
+@st.cache_data(ttl=300)
+def get_all_customers(_db_client):
+    """Get all customers for update interface"""
+    if not _db_client:
+        return {}
+
+    try:
+        result = _db_client.find({"type": "customer"}, limit=1000)
+        if result["success"]:
+            customers = {}
+            for customer in result["documents"]:
+                customer_id = customer.get("_id", "")
+                name = customer.get("name", "Client sans nom")
+                email = customer.get("email", "N/A")
+
+                # Create a user-friendly display name
+                display_name = f"{name} ({email})"
+                customers[display_name] = {
+                    "id": customer_id,
+                    "document": customer
+                }
+            return customers
+        else:
+            return {}
+    except Exception as e:
+        return {}
+
+@st.cache_data(ttl=300)
+def get_all_orders(_db_client):
+    """Get all orders for update interface"""
+    if not _db_client:
+        return {}
+
+    try:
+        result = _db_client.find({"type": "order"}, limit=1000)
+        if result["success"]:
+            orders = {}
+            for order in result["documents"]:
+                order_id = order.get("_id", "")
+                customer_id = order.get("customer_id", "N/A")
+                total = order.get("total", 0.0)
+                status = order.get("status", "pending")
+                created_at = order.get("created_at", "")[:10]  # Date only
+
+                # Create a user-friendly display name
+                display_name = f"Commande {total:.2f} € - {status} ({created_at})"
+                orders[display_name] = {
+                    "id": order_id,
+                    "document": order
+                }
+            return orders
+        else:
+            return {}
+    except Exception as e:
+        return {}
+
 @st.cache_data(ttl=60)
 def search_documents(_db_client, query, search_type):
     """Search documents based on query and type with caching"""
@@ -399,7 +536,7 @@ def search_documents(_db_client, query, search_type):
 
     try:
         # Define search selectors based on type
-        if search_type == "Products":
+        if search_type == "Produits":
             selector = {
                 "type": "product",
                 "$or": [
@@ -408,7 +545,7 @@ def search_documents(_db_client, query, search_type):
                     {"category": {"$regex": f"(?i).*{query}.*"}}
                 ]
             }
-        elif search_type == "Customers":
+        elif search_type == "Clients":
             selector = {
                 "type": "customer",
                 "$or": [
@@ -417,7 +554,7 @@ def search_documents(_db_client, query, search_type):
                     {"city": {"$regex": f"(?i).*{query}.*"}}
                 ]
             }
-        elif search_type == "Orders":
+        elif search_type == "Commandes":
             selector = {
                 "type": "order",
                 "$or": [
@@ -465,21 +602,21 @@ def search_documents(_db_client, query, search_type):
 def display_search_results(db_client, query, search_type):
     """Display search results in sidebar"""
     if not db_client:
-        st.sidebar.error("Database not connected")
+        st.sidebar.error("Base de données non connectée")
         return
 
-    with st.spinner("Searching..."):
+    with st.spinner("Recherche en cours..."):
         results, error = search_documents(db_client, query, search_type)
 
     if error:
-        st.sidebar.error(f"Search error: {error}")
+        st.sidebar.error(f"Erreur de recherche : {error}")
         return
 
     if not results:
-        st.sidebar.info("No results found")
+        st.sidebar.info("Aucun résultat trouvé")
         return
 
-    st.sidebar.markdown(f"**Found {len(results)} result(s):**")
+    st.sidebar.markdown(f"**Trouvé {len(results)} résultat(s) :**")
 
     for i, doc in enumerate(results):
         doc_type = doc.get("type", "unknown").title()
@@ -512,38 +649,38 @@ def main():
 
     # Sidebar
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Choose a page", ["Dashboard", "Data Explorer", "CRUD Operations", "Raw Data"])
+    page = st.sidebar.selectbox("Choisir une page", ["Tableau de Bord", "Explorateur de Données", "Opérations CRUD", "Données Brutes"])
 
     # Connection status
-    st.sidebar.markdown("### Connection Status")
+    st.sidebar.markdown("### État de la Connexion")
 
-    with st.spinner("Connecting to CouchDB..."):
+    with st.spinner("Connexion à CouchDB..."):
         db_client, analytics, error = get_database_connection()
 
     # Search bar (only if connected)
     if not error:
-        st.sidebar.markdown("### 🔍 Quick Search")
-        search_query = st.sidebar.text_input("Search documents...", placeholder="Enter search term")
-        search_type = st.sidebar.selectbox("Search in:", ["All", "Products", "Customers", "Orders"])
+        st.sidebar.markdown("### 🔍 Recherche Rapide")
+        search_query = st.sidebar.text_input("Rechercher des documents...", placeholder="Saisir un terme de recherche")
+        search_type = st.sidebar.selectbox("Rechercher dans :", ["Tout", "Produits", "Clients", "Commandes"])
 
         # Search results
         if search_query:
             display_search_results(db_client, search_query, search_type)
 
     if error:
-        st.sidebar.markdown('<p class="error-message">❌ Connection Failed</p>', unsafe_allow_html=True)
-        st.sidebar.error(f"Error: {error}")
-        st.error("Cannot connect to CouchDB. Please check your configuration and ensure CouchDB is running.")
-        st.info("Make sure to:")
+        st.sidebar.markdown('<p class="error-message">❌ Connexion Échouée</p>', unsafe_allow_html=True)
+        st.sidebar.error(f"Erreur : {error}")
+        st.error("Impossible de se connecter à CouchDB. Veuillez vérifier votre configuration et vous assurer que CouchDB fonctionne.")
+        st.info("Assurez-vous de :")
         st.markdown("""
-        - Start CouchDB service
-        - Check .env file configuration
-        - Run setup_couchdb.py first
-        - Run scripts/etl.py to populate data
+        - Démarrer le service CouchDB
+        - Vérifier la configuration du fichier .env
+        - Exécuter setup_couchdb.py en premier
+        - Exécuter scripts/etl.py pour peupler les données
         """)
         return
     else:
-        st.sidebar.markdown('<p class="success-message">✅ Connected</p>', unsafe_allow_html=True)
+        st.sidebar.markdown('<p class="success-message">✅ Connecté</p>', unsafe_allow_html=True)
 
         # Database info
         db_info = db_client.get_database_info()
@@ -553,21 +690,25 @@ def main():
             st.sidebar.info(f"Documents: {info.get('doc_count', 0)}")
 
     # Main content based on selected page
-    if page == "Dashboard":
+    if page == "Tableau de Bord":
         display_dashboard(analytics)
-    elif page == "Data Explorer":
+    elif page == "Explorateur de Données":
         display_data_explorer(analytics)
-    elif page == "CRUD Operations":
+    elif page == "Opérations CRUD":
         display_crud_operations(db_client)
-    elif page == "Raw Data":
+    elif page == "Données Brutes":
         display_raw_data(db_client, analytics)
 
 def display_dashboard(analytics):
     """Display main dashboard"""
-    st.header("Key Performance Indicators")
+    st.header("Indicateurs Clés de Performance")
+
+    if not analytics:
+        st.error("Moteur d'analytique non disponible")
+        return
 
     # Load data
-    with st.spinner("Loading analytics data..."):
+    with st.spinner("Chargement des données analytiques..."):
         sales_data, sales_error = load_sales_data(analytics)
         customer_data, customer_error = load_customer_data(analytics)
         product_data, product_error = load_product_data(analytics)
@@ -576,13 +717,13 @@ def display_dashboard(analytics):
 
     # Check for errors
     if any([sales_error, customer_error, product_error]):
-        st.error("Some data could not be loaded:")
+        st.error("Certaines données n'ont pas pu être chargées :")
         if sales_error:
-            st.error(f"Sales: {sales_error}")
+            st.error(f"Ventes : {sales_error}")
         if customer_error:
-            st.error(f"Customers: {customer_error}")
+            st.error(f"Clients : {customer_error}")
         if product_error:
-            st.error(f"Products: {product_error}")
+            st.error(f"Produits : {product_error}")
         return
 
     # KPI Cards
@@ -594,56 +735,65 @@ def display_dashboard(analytics):
     col1, col2 = st.columns(2)
 
     with col1:
-        st.subheader("Order Status Distribution")
+        st.subheader("Distribution des Statuts de Commandes")
         create_order_status_chart(sales_data)
 
     with col2:
-        st.subheader("Products by Category")
+        st.subheader("Produits par Catégorie")
         create_product_category_chart(product_data)
 
     # Charts Row 2
-    st.subheader("Sales Trend Analysis")
+    st.subheader("Analyse des Tendances de Vente")
     create_sales_trend_chart(sales_by_month)
 
     # Charts Row 3
     col3, col4 = st.columns(2)
 
     with col3:
-        st.subheader("Top Products")
+        st.subheader("Meilleurs Produits")
         create_top_products_chart(top_products)
 
     with col4:
-        st.subheader("Customer Value Analysis")
+        st.subheader("Analyse de la Valeur Client")
         create_customer_analysis_chart(customer_data)
 
 def display_data_explorer(analytics):
     """Display data exploration tools"""
-    st.header("Data Explorer")
+    st.header("🔍 Explorateur de Données")
 
     # Query builder
-    st.subheader("Custom Query Builder")
+    st.subheader("Générateur de Requêtes Personnalisées")
 
-    doc_type = st.selectbox("Document Type", ["product", "customer", "order", "analytics_event"])
+    doc_type = st.selectbox("Type de Document", ["product", "customer", "order", "analytics_event"],
+                           format_func=lambda x: {"product": "Produit", "customer": "Client", "order": "Commande", "analytics_event": "Événement Analytics"}[x])
 
     # Dynamic filters based on document type
     filters = {}
 
     if doc_type == "product":
-        category = st.text_input("Category (optional)")
-        if category:
-            filters["category"] = category
+        # Get available categories from database
+        available_categories = get_product_categories(analytics.db)
+        if available_categories:
+            category_options = ["Toutes"] + available_categories
+            selected_category = st.selectbox("Catégorie", category_options)
+            if selected_category != "Toutes":
+                filters["category"] = selected_category
+        else:
+            st.info("Aucune catégorie trouvée dans la base de données")
 
         col1, col2 = st.columns(2)
         with col1:
-            min_price = st.number_input("Min Price", min_value=0.0, value=0.0)
+            min_price = st.number_input("Prix Minimum", min_value=0.0, value=0.0)
         with col2:
-            max_price = st.number_input("Max Price", min_value=0.0, value=1000.0)
+            max_price = st.number_input("Prix Maximum", min_value=0.0, value=1000.0)
 
         if min_price > 0 or max_price < 1000:
             filters["price"] = {"$gte": min_price, "$lte": max_price}
 
     elif doc_type == "order":
-        status = st.selectbox("Status (optional)", ["", "pending", "confirmed", "shipped", "delivered", "cancelled"])
+        status = st.selectbox("Statut (optionnel)", ["", "pending", "confirmed", "shipped", "delivered", "cancelled"],
+                             format_func=lambda x: {"": "Tous", "pending": "En attente", "confirmed": "Confirmé",
+                                                   "shipped": "Expédié", "delivered": "Livré", "cancelled": "Annulé"}[x] if x else "Tous")
         if status:
             filters["status"] = status
 
@@ -651,37 +801,319 @@ def display_data_explorer(analytics):
     selector = {"type": doc_type}
     selector.update(filters)
 
-    limit = st.slider("Limit results", 1, 100, 20)
+    limit = st.slider("Limite des résultats", 1, 100, 20)
 
-    if st.button("Execute Query"):
-        with st.spinner("Executing query..."):
+    if st.button("Exécuter la Requête"):
+        with st.spinner("Exécution de la requête..."):
             result = analytics.db.find(selector, limit=limit)
 
             if result["success"]:
                 documents = result["documents"]
-                st.success(f"Found {len(documents)} documents")
+                st.success(f"Trouvé {len(documents)} documents")
 
                 if documents:
-                    # Display as JSON
-                    st.json(documents)
+                    # Display as beautiful cards instead of JSON
+                    display_documents_as_cards(documents, doc_type)
 
                     # Download button
                     json_str = json.dumps(documents, indent=2, default=str)
                     st.download_button(
-                        label="Download as JSON",
+                        label="Télécharger en JSON",
                         data=json_str,
                         file_name=f"{doc_type}_query_results.json",
                         mime="application/json"
                     )
             else:
-                st.error(f"Query failed: {result.get('error', 'Unknown error')}")
+                st.error(f"Échec de la requête : {result.get('error', 'Erreur inconnue')}")
+
+def display_documents_as_cards(documents, doc_type):
+    """Display documents as beautiful cards instead of JSON"""
+
+    # Add custom CSS for dark theme cards
+    st.markdown("""
+    <style>
+    .doc-card {
+        background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+        border: 1px solid #404040;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid #00d4aa;
+        margin: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .doc-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,212,170,0.2);
+    }
+    .doc-card-header {
+        color: #00d4aa;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(0,212,170,0.3);
+    }
+    .doc-field {
+        margin: 0.7rem 0;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .doc-field:last-child {
+        border-bottom: none;
+    }
+    .doc-field-label {
+        font-weight: bold;
+        color: #b0b0b0;
+        display: inline-block;
+        width: 140px;
+        font-size: 0.9rem;
+    }
+    .doc-field-value {
+        color: #ffffff;
+        background: rgba(255,255,255,0.05);
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        display: inline-block;
+        border: 1px solid rgba(255,255,255,0.1);
+        font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+    }
+    .price-badge {
+        background: linear-gradient(135deg, #00d4aa 0%, #00a085 100%);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(0,212,170,0.3);
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .status-badge {
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .status-pending {
+        background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    }
+    .status-confirmed {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+    .status-shipped {
+        background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    }
+    .status-delivered {
+        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    }
+    .status-cancelled {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    }
+    .status-active {
+        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    }
+    .status-inactive {
+        background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    }
+
+    /* Dark theme scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #2d2d2d;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #00d4aa;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00a085;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Display cards in columns
+    cols_per_row = 2 if doc_type == "product" else 3
+
+    for i in range(0, len(documents), cols_per_row):
+        cols = st.columns(cols_per_row)
+
+        for j in range(cols_per_row):
+            if i + j < len(documents):
+                doc = documents[i + j]
+
+                with cols[j]:
+                    if doc_type == "product":
+                        display_product_card(doc)
+                    elif doc_type == "customer":
+                        display_customer_card(doc)
+                    elif doc_type == "order":
+                        display_order_card(doc)
+                    else:
+                        display_generic_card(doc)
+
+def display_product_card(doc):
+    """Display a product as a card"""
+    product_name = doc.get("name", "Produit sans nom")
+    category = doc.get("category", "N/A")
+    price = doc.get("price", 0)
+    status = doc.get("status", "unknown")
+    description = doc.get("description", "")
+    doc_id = doc.get("_id", "")
+
+    status_class = f"status-{status}"
+
+    card_html = f"""
+    <div class="doc-card">
+        <div class="doc-card-header">🏷️ {product_name}</div>
+        <div class="doc-field">
+            <span class="doc-field-label">Catégorie:</span>
+            <span class="doc-field-value">{category}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Prix:</span>
+            <span class="price-badge">{price:.2f} €</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Statut:</span>
+            <span class="status-badge {status_class}">{status.title()}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Description:</span>
+            <span class="doc-field-value">{description[:100]}{'...' if len(description) > 100 else ''}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">ID:</span>
+            <span class="doc-field-value">{doc_id[:20]}...</span>
+        </div>
+    </div>
+    """
+    st.markdown(card_html, unsafe_allow_html=True)
+
+    # JSON option in expander
+    with st.expander(f"Voir JSON - {product_name}"):
+        st.json(doc)
+
+def display_customer_card(doc):
+    """Display a customer as a card"""
+    name = doc.get("name", "Client sans nom")
+    email = doc.get("email", "N/A")
+    phone = doc.get("phone", "N/A")
+    address = doc.get("address", {})
+    city = address.get("city", "N/A") if address else "N/A"
+    doc_id = doc.get("_id", "")
+
+    card_html = f"""
+    <div class="doc-card">
+        <div class="doc-card-header">👤 {name}</div>
+        <div class="doc-field">
+            <span class="doc-field-label">Email:</span>
+            <span class="doc-field-value">{email}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Téléphone:</span>
+            <span class="doc-field-value">{phone}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Ville:</span>
+            <span class="doc-field-value">{city}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">ID:</span>
+            <span class="doc-field-value">{doc_id[:20]}...</span>
+        </div>
+    </div>
+    """
+    st.markdown(card_html, unsafe_allow_html=True)
+
+    # JSON option in expander
+    with st.expander(f"Voir JSON - {name}"):
+        st.json(doc)
+
+def display_order_card(doc):
+    """Display an order as a card"""
+    customer_id = doc.get("customer_id", "N/A")
+    status = doc.get("status", "unknown")
+    total = doc.get("total", 0)
+    products = doc.get("products", [])
+    doc_id = doc.get("_id", "")
+    created_at = doc.get("created_at", "")
+
+    # Format date
+    try:
+        from datetime import datetime
+        if created_at:
+            date_obj = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
+            formatted_date = date_obj.strftime("%d/%m/%Y %H:%M")
+        else:
+            formatted_date = "N/A"
+    except:
+        formatted_date = "N/A"
+
+    status_class = f"status-{status}"
+
+    card_html = f"""
+    <div class="doc-card">
+        <div class="doc-card-header">🛒 Commande</div>
+        <div class="doc-field">
+            <span class="doc-field-label">Client ID:</span>
+            <span class="doc-field-value">{customer_id[:15]}...</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Statut:</span>
+            <span class="status-badge {status_class}">{status.title()}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Total:</span>
+            <span class="price-badge">{total:.2f} €</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Produits:</span>
+            <span class="doc-field-value">{len(products)} article(s)</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">Date:</span>
+            <span class="doc-field-value">{formatted_date}</span>
+        </div>
+        <div class="doc-field">
+            <span class="doc-field-label">ID:</span>
+            <span class="doc-field-value">{doc_id[:20]}...</span>
+        </div>
+    </div>
+    """
+    st.markdown(card_html, unsafe_allow_html=True)
+
+    # JSON option in expander
+    with st.expander(f"Voir JSON - Commande"):
+        st.json(doc)
+
+def display_generic_card(doc):
+    """Display a generic document as a card"""
+    doc_type = doc.get("type", "Document")
+    doc_id = doc.get("_id", "")
+
+    card_html = f"""
+    <div class="doc-card">
+        <div class="doc-card-header">📄 {doc_type.title()}</div>
+        <div class="doc-field">
+            <span class="doc-field-label">ID:</span>
+            <span class="doc-field-value">{doc_id[:30]}...</span>
+        </div>
+    </div>
+    """
+    st.markdown(card_html, unsafe_allow_html=True)
+
+    # JSON option in expander
+    with st.expander(f"Voir JSON - {doc_type}"):
+        st.json(doc)
 
 def display_raw_data(db_client, analytics):
     """Display raw data and database operations"""
-    st.header("Raw Data & Operations")
+    st.header("📋 Données Brutes & Opérations")
 
     # Database statistics
-    st.subheader("Database Statistics")
+    st.subheader("Statistiques de la Base de Données")
     db_info = db_client.get_database_info()
     if db_info["success"]:
         info = db_info["info"]
@@ -690,13 +1122,13 @@ def display_raw_data(db_client, analytics):
         with col1:
             st.metric("Total Documents", info.get("doc_count", 0))
         with col2:
-            st.metric("Deleted Documents", info.get("doc_del_count", 0))
+            st.metric("Documents Supprimés", info.get("doc_del_count", 0))
         with col3:
             db_size_bytes = info.get('sizes', {}).get('active', 0)
-            st.metric("Database Size", f"{db_size_bytes / 1024 / 1024:.2f} MB")
+            st.metric("Taille Base de Données", f"{db_size_bytes / 1024 / 1024:.2f} MB")
 
     # Sample documents
-    st.subheader("Sample Documents by Type")
+    st.subheader("Échantillons de Documents par Type")
 
     doc_types = ["product", "customer", "order", "analytics_event"]
 
@@ -771,7 +1203,7 @@ def display_create_interface(db_client):
                         metadata=metadata
                     )
 
-                    result = db_client.create_document(product_doc)
+                    result = db_client.create(product_doc)
                     if result["success"]:
                         st.success(f"Product created successfully! ID: {product_doc['_id']}")
                         st.json(product_doc)
@@ -811,7 +1243,7 @@ def display_create_interface(db_client):
                         address=address if address else None
                     )
 
-                    result = db_client.create_document(customer_doc)
+                    result = db_client.create(customer_doc)
                     if result["success"]:
                         st.success(f"Customer created successfully! ID: {customer_doc['_id']}")
                         st.json(customer_doc)
@@ -819,39 +1251,159 @@ def display_create_interface(db_client):
                         st.error(f"Failed to create customer: {result.get('error', 'Unknown error')}")
 
     elif doc_type == "Order":
-        with st.form("create_order_form"):
-            st.markdown("### Order Information")
+        st.markdown("### 📋 Création de Commande")
 
-            # Get customers for dropdown
-            customers_result = db_client.find({"type": "customer"}, limit=50)
-            if customers_result["success"] and customers_result["documents"]:
-                customer_options = {f"{c['name']} ({c['email']})": c["_id"]
-                                 for c in customers_result["documents"]}
-                selected_customer = st.selectbox("Customer *", list(customer_options.keys()))
-                customer_id = customer_options[selected_customer] if selected_customer else ""
+        # Part 1: Dynamic product selection (outside form for real-time updates)
+        st.markdown("#### 🔍 Sélection Dynamique")
+
+        # Get customers for dropdown
+        customers_result = db_client.find({"type": "customer"}, limit=50)
+        if customers_result["success"] and customers_result["documents"]:
+            customer_options = {f"{c['name']} ({c['email']})": c["_id"]
+                             for c in customers_result["documents"]}
+            selected_customer = st.selectbox("Client *", list(customer_options.keys()))
+            customer_id = customer_options[selected_customer] if selected_customer else ""
+        else:
+            customer_id = st.text_input("ID Client *", placeholder="customer_...")
+            st.warning("Aucun client trouvé dans la base de données.")
+
+        # Get available products
+        available_products = get_available_products(db_client)
+
+        if available_products:
+            selected_product_display = st.selectbox(
+                "Sélectionner un produit *",
+                list(available_products.keys()),
+                key="product_selector"
+            )
+
+            if selected_product_display:
+                product_info = available_products[selected_product_display]
+                product_id = product_info["id"]
+                suggested_price = product_info["price"]
+
+                # Display product info with enhanced styling
+                st.markdown("#### 📦 Informations du Produit")
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                padding: 15px; border-radius: 10px; color: white; margin-bottom: 10px;">
+                        <h4 style="margin: 0; color: white;">📝 {product_info['name']}</h4>
+                    </div>
+                    """, unsafe_allow_html=True)
+                with col2:
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                                padding: 15px; border-radius: 10px; color: white; margin-bottom: 10px;">
+                        <h4 style="margin: 0; color: white;">🏷️ {product_info['category']}</h4>
+                    </div>
+                    """, unsafe_allow_html=True)
+                with col3:
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                                padding: 15px; border-radius: 10px; color: white; margin-bottom: 10px;">
+                        <h4 style="margin: 0; color: white;">💰 {suggested_price:.2f} €</h4>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                st.markdown("#### ⚙️ Configuration de la Commande")
+
+                # Dynamic inputs (outside form)
+                col_qty, col_price = st.columns(2)
+
+                with col_qty:
+                    quantity = st.number_input(
+                        "Quantité",
+                        min_value=1,
+                        value=1,
+                        key="quantity_input",
+                        help="Modifiez la quantité pour voir le total se mettre à jour"
+                    )
+
+                with col_price:
+                    unit_price = st.number_input(
+                        "Prix unitaire (€)",
+                        min_value=0.01,
+                        value=suggested_price,
+                        step=0.01,
+                        key="price_input",
+                        help="Prix par unité (pré-rempli avec le prix du produit)"
+                    )
+
+                # Dynamic total calculation
+                total = quantity * unit_price
+
+                # Visual total display
+                st.markdown("#### 💵 Résumé de la Commande")
+                col_summary1, col_summary2, col_summary3 = st.columns(3)
+
+                with col_summary1:
+                    st.metric(
+                        label="Quantité",
+                        value=f"{quantity} unité{'s' if quantity > 1 else ''}"
+                    )
+
+                with col_summary2:
+                    st.metric(
+                        label="Prix Unitaire",
+                        value=f"{unit_price:.2f} €",
+                        delta=f"{unit_price - suggested_price:.2f} €" if unit_price != suggested_price else None
+                    )
+
+                with col_summary3:
+                    # Dynamic color based on total amount
+                    if total < 50:
+                        color = "#28a745"
+                    elif total < 200:
+                        color = "#ffc107"
+                    else:
+                        color = "#dc3545"
+
+                    st.markdown(f"""
+                    <div style="background: linear-gradient(135deg, {color} 0%, {color}aa 100%);
+                                padding: 20px; border-radius: 15px; color: white; text-align: center;
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <h2 style="margin: 0; color: white;">💰 TOTAL</h2>
+                        <h1 style="margin: 5px 0; color: white; font-size: 2.5em;">{total:.2f} €</h1>
+                        <p style="margin: 0; opacity: 0.9;">
+                            {quantity} × {unit_price:.2f} €
+                        </p>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                # Additional visual feedback
+                if total > 100:
+                    st.info("💎 Commande importante ! Vérifiez les quantités avant de valider.")
+                elif total < 10:
+                    st.warning("⚠️ Commande de faible montant.")
+
             else:
-                customer_id = st.text_input("Customer ID *", placeholder="customer_...")
-                st.warning("No customers found in database. Please enter customer ID manually.")
-
-            status = st.selectbox("Status", ["pending", "confirmed", "shipped", "delivered", "cancelled"])
-
-            # Products - simplified for demo
-            st.markdown("### Products")
-            st.info("Simplified product entry - in a real application, you'd have a dynamic product selector")
-            product_id = st.text_input("Product ID", placeholder="product_...")
-            quantity = st.number_input("Quantity", min_value=1, value=1)
-            unit_price = st.number_input("Unit Price ($)", min_value=0.01, value=1.0)
-
+                product_id = None
+                unit_price = 0.01
+                quantity = 1
+                total = 0.01
+        else:
+            st.warning("Aucun produit actif trouvé dans la base de données")
+            product_id = st.text_input("ID Produit (manuel)", placeholder="product_...")
+            quantity = st.number_input("Quantité", min_value=1, value=1)
+            unit_price = st.number_input("Prix unitaire (€)", min_value=0.01, value=1.0)
             total = quantity * unit_price
-            st.metric("Total Amount", f"${total:.2f}")
 
-            submitted = st.form_submit_button("Create Order")
+        # Part 2: Form submission (only the submission button)
+        st.markdown("#### 📋 Finalisation")
+        status = st.selectbox("Statut de la commande", ["pending", "confirmed", "shipped", "delivered", "cancelled"])
+
+        with st.form("submit_order_form"):
+            st.info(f"Résumé : {quantity} × {product_info.get('name', 'Produit') if 'product_info' in locals() else 'Produit'} = {total:.2f} €")
+
+            submitted = st.form_submit_button("🚀 Créer la Commande")
 
             if submitted:
                 if not customer_id:
-                    st.error("Customer ID is required")
+                    st.error("L'ID client est requis")
                 elif not product_id:
-                    st.error("Product ID is required")
+                    st.error("La sélection d'un produit est requise")
                 else:
                     products = [{"product_id": product_id, "quantity": quantity, "price": unit_price}]
 
@@ -862,12 +1414,12 @@ def display_create_interface(db_client):
                         status=status
                     )
 
-                    result = db_client.create_document(order_doc)
+                    result = db_client.create(order_doc)
                     if result["success"]:
-                        st.success(f"Order created successfully! ID: {order_doc['_id']}")
+                        st.success(f"🎉 Commande créée avec succès ! ID: {order_doc['_id']}")
                         st.json(order_doc)
                     else:
-                        st.error(f"Failed to create order: {result.get('error', 'Unknown error')}")
+                        st.error(f"❌ Échec de la création de commande : {result.get('error', 'Erreur inconnue')}")
 
 def display_read_interface(db_client):
     """Display interface for reading documents"""
@@ -879,7 +1431,7 @@ def display_read_interface(db_client):
         doc_id = st.text_input("Document ID", placeholder="e.g., product_12345...")
 
         if st.button("Get Document") and doc_id:
-            result = db_client.read_document(doc_id)
+            result = db_client.read(doc_id)
             if result["success"]:
                 st.success("Document found!")
                 st.json(result["document"])
@@ -934,119 +1486,214 @@ def display_read_interface(db_client):
                 st.error("Invalid JSON query format")
 
 def display_update_interface(db_client):
-    """Display interface for updating documents"""
-    st.subheader("✏️ Update Documents")
+    """Display user-friendly interface for updating documents"""
+    st.subheader("✏️ Modifier des Documents")
 
-    # Step 1: Get document
-    st.markdown("### Step 1: Find Document to Update")
-    doc_id = st.text_input("Document ID", placeholder="e.g., product_12345...")
+    # Step 1: Select document type and specific document
+    st.markdown("### 🔍 Sélection du Document à Modifier")
 
-    if doc_id and st.button("Load Document"):
-        st.session_state.update_doc_id = doc_id
-        result = db_client.read_document(doc_id)
-        if result["success"]:
-            st.session_state.update_document = result["document"]
-            st.success("Document loaded successfully!")
+    doc_type = st.selectbox(
+        "Type de document",
+        ["Produit", "Client", "Commande"],
+        key="update_doc_type_selector"
+    )
+
+    selected_doc = None
+    selected_doc_id = None
+
+    if doc_type == "Produit":
+        all_products = get_all_products(db_client)
+        if all_products:
+            selected_product_display = st.selectbox(
+                "Sélectionner un produit à modifier",
+                list(all_products.keys()),
+                key="update_product_selector"
+            )
+            if selected_product_display:
+                selected_doc = all_products[selected_product_display]["document"]
+                selected_doc_id = all_products[selected_product_display]["id"]
         else:
-            st.error(f"Document not found: {result.get('error', 'Unknown error')}")
-            if "update_document" in st.session_state:
-                del st.session_state.update_document
+            st.warning("Aucun produit trouvé dans la base de données")
 
-    # Step 2: Update document
-    if hasattr(st.session_state, 'update_document'):
-        st.markdown("### Step 2: Update Document Fields")
-        doc = st.session_state.update_document
-        doc_type = doc.get("type", "unknown")
+    elif doc_type == "Client":
+        all_customers = get_all_customers(db_client)
+        if all_customers:
+            selected_customer_display = st.selectbox(
+                "Sélectionner un client à modifier",
+                list(all_customers.keys()),
+                key="update_customer_selector"
+            )
+            if selected_customer_display:
+                selected_doc = all_customers[selected_customer_display]["document"]
+                selected_doc_id = all_customers[selected_customer_display]["id"]
+        else:
+            st.warning("Aucun client trouvé dans la base de données")
 
-        st.info(f"Updating {doc_type} document: {doc.get('_id', 'No ID')}")
+    elif doc_type == "Commande":
+        all_orders = get_all_orders(db_client)
+        if all_orders:
+            selected_order_display = st.selectbox(
+                "Sélectionner une commande à modifier",
+                list(all_orders.keys()),
+                key="update_order_selector"
+            )
+            if selected_order_display:
+                selected_doc = all_orders[selected_order_display]["document"]
+                selected_doc_id = all_orders[selected_order_display]["id"]
+        else:
+            st.warning("Aucune commande trouvée dans la base de données")
 
-        if doc_type == "product":
+    # Step 2: Display current document info and update form
+    if selected_doc and selected_doc_id:
+        st.markdown("### 📝 Modification du Document")
+
+        # Display current document info in a nice card
+        st.markdown("#### 📋 Informations Actuelles")
+        with st.expander("Voir le document complet", expanded=False):
+            st.json(selected_doc)
+
+        # Update forms based on document type
+        if doc_type == "Produit":
             with st.form("update_product_form"):
-                name = st.text_input("Product Name", value=doc.get("name", ""))
-                category = st.text_input("Category", value=doc.get("category", ""))
-                price = st.number_input("Price ($)", value=doc.get("price", 0.0), min_value=0.01)
-                description = st.text_area("Description", value=doc.get("description", ""))
-                status = st.selectbox("Status", ["active", "inactive", "discontinued"],
-                                    index=["active", "inactive", "discontinued"].index(doc.get("status", "active")))
+                st.markdown("#### ✏️ Modifier le Produit")
 
-                submitted = st.form_submit_button("Update Product")
+                col1, col2 = st.columns(2)
+                with col1:
+                    name = st.text_input("Nom du produit *", value=selected_doc.get("name", ""))
+                    category = st.selectbox(
+                        "Catégorie *",
+                        get_product_categories(db_client),
+                        index=get_product_categories(db_client).index(selected_doc.get("category", "Electronics")) if selected_doc.get("category") in get_product_categories(db_client) else 0
+                    )
 
-                if submitted:
-                    updated_doc = doc.copy()
-                    updated_doc.update({
+                with col2:
+                    price = st.number_input("Prix (€) *", value=selected_doc.get("price", 0.0), min_value=0.01, step=0.01)
+                    status = st.selectbox("Statut",
+                                        ["active", "inactive", "discontinued"],
+                                        index=["active", "inactive", "discontinued"].index(selected_doc.get("status", "active")))
+
+                description = st.text_area("Description", value=selected_doc.get("description", ""))
+
+                submitted = st.form_submit_button("🚀 Mettre à Jour le Produit")
+
+                if submitted and name and category:
+                    from datetime import datetime, timezone
+                    updates = {
                         "name": name,
                         "category": category,
                         "price": price,
                         "description": description,
                         "status": status,
-                        "updated_at": datetime.now().isoformat()
-                    })
+                        "updated_at": datetime.now(timezone.utc).isoformat(),
+                        "version": selected_doc.get("version", 1) + 1
+                    }
 
-                    result = db_client.update_document(updated_doc)
+                    result = db_client.update(selected_doc_id, updates)
                     if result["success"]:
-                        st.success("Product updated successfully!")
-                        st.json(updated_doc)
-                        del st.session_state.update_document
+                        st.success(f"🎉 Produit '{name}' mis à jour avec succès !")
+                        # Show updated document
+                        updated_result = db_client.read(selected_doc_id)
+                        if updated_result["success"]:
+                            st.markdown("#### ✅ Document Mis à Jour")
+                            st.json(updated_result["document"])
                     else:
-                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+                        st.error(f"❌ Échec de la mise à jour : {result.get('error', 'Erreur inconnue')}")
 
-        elif doc_type == "customer":
+        elif doc_type == "Client":
             with st.form("update_customer_form"):
-                name = st.text_input("Customer Name", value=doc.get("name", ""))
-                email = st.text_input("Email", value=doc.get("email", ""))
-                phone = st.text_input("Phone", value=doc.get("phone", ""))
+                st.markdown("#### ✏️ Modifier le Client")
 
-                address = doc.get("address", {})
-                street = st.text_input("Street", value=address.get("street", ""))
-                city = st.text_input("City", value=address.get("city", ""))
+                col1, col2 = st.columns(2)
+                with col1:
+                    name = st.text_input("Nom du client *", value=selected_doc.get("name", ""))
+                    email = st.text_input("Email *", value=selected_doc.get("email", ""))
 
-                submitted = st.form_submit_button("Update Customer")
+                with col2:
+                    phone = st.text_input("Téléphone", value=selected_doc.get("phone", ""))
 
-                if submitted:
-                    updated_doc = doc.copy()
-                    updated_doc.update({
+                st.markdown("**Adresse**")
+                address = selected_doc.get("address", {})
+                col3, col4 = st.columns(2)
+                with col3:
+                    street = st.text_input("Rue", value=address.get("street", ""))
+                    city = st.text_input("Ville", value=address.get("city", ""))
+                with col4:
+                    zip_code = st.text_input("Code postal", value=address.get("zip", ""))
+                    country = st.text_input("Pays", value=address.get("country", ""))
+
+                submitted = st.form_submit_button("🚀 Mettre à Jour le Client")
+
+                if submitted and name and email:
+                    from datetime import datetime, timezone
+                    address_data = {}
+                    if street: address_data["street"] = street
+                    if city: address_data["city"] = city
+                    if zip_code: address_data["zip"] = zip_code
+                    if country: address_data["country"] = country
+
+                    updates = {
                         "name": name,
                         "email": email,
                         "phone": phone,
-                        "address": {"street": street, "city": city},
-                        "updated_at": datetime.now().isoformat()
-                    })
+                        "address": address_data,
+                        "updated_at": datetime.now(timezone.utc).isoformat(),
+                        "version": selected_doc.get("version", 1) + 1
+                    }
 
-                    result = db_client.update_document(updated_doc)
+                    result = db_client.update(selected_doc_id, updates)
                     if result["success"]:
-                        st.success("Customer updated successfully!")
-                        st.json(updated_doc)
-                        del st.session_state.update_document
+                        st.success(f"🎉 Client '{name}' mis à jour avec succès !")
+                        # Show updated document
+                        updated_result = db_client.read(selected_doc_id)
+                        if updated_result["success"]:
+                            st.markdown("#### ✅ Document Mis à Jour")
+                            st.json(updated_result["document"])
                     else:
-                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+                        st.error(f"❌ Échec de la mise à jour : {result.get('error', 'Erreur inconnue')}")
 
-        elif doc_type == "order":
+        elif doc_type == "Commande":
             with st.form("update_order_form"):
-                status = st.selectbox("Status", ["pending", "confirmed", "shipped", "delivered", "cancelled"],
-                                    index=["pending", "confirmed", "shipped", "delivered", "cancelled"].index(doc.get("status", "pending")))
-                total = st.number_input("Total Amount", value=doc.get("total", 0.0), min_value=0.01)
+                st.markdown("#### ✏️ Modifier la Commande")
 
-                submitted = st.form_submit_button("Update Order")
+                col1, col2 = st.columns(2)
+                with col1:
+                    status = st.selectbox("Statut *",
+                                        ["pending", "confirmed", "shipped", "delivered", "cancelled"],
+                                        index=["pending", "confirmed", "shipped", "delivered", "cancelled"].index(selected_doc.get("status", "pending")))
+                with col2:
+                    total = st.number_input("Montant total (€) *", value=selected_doc.get("total", 0.0), min_value=0.01, step=0.01)
+
+                # Display current products info
+                products = selected_doc.get("products", [])
+                if products:
+                    st.markdown("**Produits dans la commande :**")
+                    for i, product in enumerate(products):
+                        st.write(f"• ID: {product.get('product_id', 'N/A')} | Quantité: {product.get('quantity', 0)} | Prix: {product.get('price', 0):.2f} €")
+
+                submitted = st.form_submit_button("🚀 Mettre à Jour la Commande")
 
                 if submitted:
-                    updated_doc = doc.copy()
-                    updated_doc.update({
+                    from datetime import datetime, timezone
+                    updates = {
                         "status": status,
                         "total": total,
-                        "updated_at": datetime.now().isoformat()
-                    })
+                        "updated_at": datetime.now(timezone.utc).isoformat(),
+                        "version": selected_doc.get("version", 1) + 1
+                    }
 
-                    result = db_client.update_document(updated_doc)
+                    result = db_client.update(selected_doc_id, updates)
                     if result["success"]:
-                        st.success("Order updated successfully!")
-                        st.json(updated_doc)
-                        del st.session_state.update_document
+                        st.success(f"🎉 Commande mise à jour avec succès !")
+                        # Show updated document
+                        updated_result = db_client.read(selected_doc_id)
+                        if updated_result["success"]:
+                            st.markdown("#### ✅ Document Mis à Jour")
+                            st.json(updated_result["document"])
                     else:
-                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+                        st.error(f"❌ Échec de la mise à jour : {result.get('error', 'Erreur inconnue')}")
 
-        else:
-            st.warning(f"Update interface not implemented for document type: {doc_type}")
-            st.json(doc)
+    else:
+        st.info("👆 Sélectionnez un type de document et un élément spécifique pour commencer la modification.")
 
 def display_delete_interface(db_client):
     """Display interface for deleting documents"""
@@ -1060,7 +1707,7 @@ def display_delete_interface(db_client):
 
         # Preview document before deletion
         if doc_id and st.button("Preview Document"):
-            result = db_client.read_document(doc_id)
+            result = db_client.read(doc_id)
             if result["success"]:
                 st.json(result["document"])
                 st.session_state.delete_preview = result["document"]
@@ -1073,12 +1720,12 @@ def display_delete_interface(db_client):
             confirm = st.checkbox("I confirm I want to delete this document")
 
             if confirm and st.button("🗑️ Delete Document", type="primary"):
-                result = db_client.delete_document(st.session_state.delete_preview)
+                result = db_client.delete(st.session_state.delete_preview["_id"])
                 if result["success"]:
-                    st.success("Document deleted successfully!")
+                    st.success("Document supprimé avec succès !")
                     del st.session_state.delete_preview
                 else:
-                    st.error(f"Delete failed: {result.get('error', 'Unknown error')}")
+                    st.error(f"Échec de la suppression : {result.get('error', 'Erreur inconnue')}")
 
     elif delete_method == "Bulk Delete by Query":
         st.markdown("### Bulk Delete by Document Type")
@@ -1133,16 +1780,16 @@ def display_delete_interface(db_client):
                 error_count = 0
 
                 for doc in st.session_state.bulk_delete_docs:
-                    result = db_client.delete_document(doc)
+                    result = db_client.delete(doc["_id"])
                     if result["success"]:
                         success_count += 1
                     else:
                         error_count += 1
 
                 if error_count == 0:
-                    st.success(f"Successfully deleted {success_count} documents!")
+                    st.success(f"{success_count} documents supprimés avec succès !")
                 else:
-                    st.warning(f"Deleted {success_count} documents, {error_count} failed")
+                    st.warning(f"{success_count} documents supprimés, {error_count} échecs")
 
                 del st.session_state.bulk_delete_docs
                 del st.session_state.bulk_delete_query
