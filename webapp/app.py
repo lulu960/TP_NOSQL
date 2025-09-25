@@ -17,6 +17,7 @@ import json
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 from database import CouchDBClient
 from analytics import AnalyticsEngine
+from models import ProductSchema, CustomerSchema, OrderSchema, AnalyticsEventSchema
 
 # Page config
 st.set_page_config(
@@ -390,6 +391,118 @@ def create_customer_analysis_chart(customer_data):
 
     st.plotly_chart(fig, use_container_width=True)
 
+@st.cache_data(ttl=60)
+def search_documents(_db_client, query, search_type):
+    """Search documents based on query and type with caching"""
+    if not _db_client or not query.strip():
+        return [], "No query provided"
+
+    try:
+        # Define search selectors based on type
+        if search_type == "Products":
+            selector = {
+                "type": "product",
+                "$or": [
+                    {"name": {"$regex": f"(?i).*{query}.*"}},
+                    {"description": {"$regex": f"(?i).*{query}.*"}},
+                    {"category": {"$regex": f"(?i).*{query}.*"}}
+                ]
+            }
+        elif search_type == "Customers":
+            selector = {
+                "type": "customer",
+                "$or": [
+                    {"name": {"$regex": f"(?i).*{query}.*"}},
+                    {"email": {"$regex": f"(?i).*{query}.*"}},
+                    {"city": {"$regex": f"(?i).*{query}.*"}}
+                ]
+            }
+        elif search_type == "Orders":
+            selector = {
+                "type": "order",
+                "$or": [
+                    {"status": {"$regex": f"(?i).*{query}.*"}},
+                    {"customer_id": {"$regex": f"(?i).*{query}.*"}}
+                ]
+            }
+        else:  # All
+            selector = {
+                "$or": [
+                    {
+                        "type": "product",
+                        "$or": [
+                            {"name": {"$regex": f"(?i).*{query}.*"}},
+                            {"description": {"$regex": f"(?i).*{query}.*"}},
+                            {"category": {"$regex": f"(?i).*{query}.*"}}
+                        ]
+                    },
+                    {
+                        "type": "customer",
+                        "$or": [
+                            {"name": {"$regex": f"(?i).*{query}.*"}},
+                            {"email": {"$regex": f"(?i).*{query}.*"}},
+                            {"city": {"$regex": f"(?i).*{query}.*"}}
+                        ]
+                    },
+                    {
+                        "type": "order",
+                        "$or": [
+                            {"status": {"$regex": f"(?i).*{query}.*"}}
+                        ]
+                    }
+                ]
+            }
+
+        result = _db_client.find(selector, limit=10)
+        if result["success"]:
+            return result["documents"], None
+        else:
+            return [], result.get("error", "Search failed")
+
+    except Exception as e:
+        return [], str(e)
+
+def display_search_results(db_client, query, search_type):
+    """Display search results in sidebar"""
+    if not db_client:
+        st.sidebar.error("Database not connected")
+        return
+
+    with st.spinner("Searching..."):
+        results, error = search_documents(db_client, query, search_type)
+
+    if error:
+        st.sidebar.error(f"Search error: {error}")
+        return
+
+    if not results:
+        st.sidebar.info("No results found")
+        return
+
+    st.sidebar.markdown(f"**Found {len(results)} result(s):**")
+
+    for i, doc in enumerate(results):
+        doc_type = doc.get("type", "unknown").title()
+        doc_id = doc.get("_id", "N/A")
+
+        with st.sidebar.expander(f"{doc_type} - {doc_id[:12]}..."):
+            if doc_type == "Product":
+                st.write(f"**Name:** {doc.get('name', 'N/A')}")
+                st.write(f"**Category:** {doc.get('category', 'N/A')}")
+                st.write(f"**Price:** ${doc.get('price', 0):.2f}")
+            elif doc_type == "Customer":
+                st.write(f"**Name:** {doc.get('name', 'N/A')}")
+                st.write(f"**Email:** {doc.get('email', 'N/A')}")
+                st.write(f"**City:** {doc.get('city', 'N/A')}")
+            elif doc_type == "Order":
+                st.write(f"**Status:** {doc.get('status', 'N/A')}")
+                st.write(f"**Total:** ${doc.get('total_amount', 0):.2f}")
+                st.write(f"**Customer:** {doc.get('customer_id', 'N/A')[:12]}...")
+
+            # Show full JSON option
+            if st.button(f"Show JSON", key=f"json_{i}"):
+                st.json(doc)
+
 def main():
     """Main application function"""
 
@@ -399,13 +512,23 @@ def main():
 
     # Sidebar
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Choose a page", ["Dashboard", "Data Explorer", "Raw Data"])
+    page = st.sidebar.selectbox("Choose a page", ["Dashboard", "Data Explorer", "CRUD Operations", "Raw Data"])
 
     # Connection status
     st.sidebar.markdown("### Connection Status")
 
     with st.spinner("Connecting to CouchDB..."):
         db_client, analytics, error = get_database_connection()
+
+    # Search bar (only if connected)
+    if not error:
+        st.sidebar.markdown("### 🔍 Quick Search")
+        search_query = st.sidebar.text_input("Search documents...", placeholder="Enter search term")
+        search_type = st.sidebar.selectbox("Search in:", ["All", "Products", "Customers", "Orders"])
+
+        # Search results
+        if search_query:
+            display_search_results(db_client, search_query, search_type)
 
     if error:
         st.sidebar.markdown('<p class="error-message">❌ Connection Failed</p>', unsafe_allow_html=True)
@@ -434,6 +557,8 @@ def main():
         display_dashboard(analytics)
     elif page == "Data Explorer":
         display_data_explorer(analytics)
+    elif page == "CRUD Operations":
+        display_crud_operations(db_client)
     elif page == "Raw Data":
         display_raw_data(db_client, analytics)
 
@@ -583,6 +708,444 @@ def display_raw_data(db_client, analytics):
                     st.json({f"{doc_type}_{i+1}": doc})
             else:
                 st.info(f"No {doc_type} documents found")
+
+def display_crud_operations(db_client):
+    """Display CRUD operations interface"""
+    if not db_client:
+        st.error("Database connection required for CRUD operations")
+        return
+
+    st.header("🛠️ CRUD Operations")
+    st.markdown("Create, Read, Update, and Delete documents in the CouchDB database")
+
+    # CRUD operation selector
+    operation = st.selectbox("Select Operation", ["Create", "Read", "Update", "Delete"])
+
+    if operation == "Create":
+        display_create_interface(db_client)
+    elif operation == "Read":
+        display_read_interface(db_client)
+    elif operation == "Update":
+        display_update_interface(db_client)
+    elif operation == "Delete":
+        display_delete_interface(db_client)
+
+def display_create_interface(db_client):
+    """Display interface for creating documents"""
+    st.subheader("📝 Create New Document")
+
+    doc_type = st.selectbox("Document Type", ["Product", "Customer", "Order"])
+
+    if doc_type == "Product":
+        with st.form("create_product_form"):
+            st.markdown("### Product Information")
+            name = st.text_input("Product Name *", placeholder="e.g., Smartphone XY Pro")
+            category = st.selectbox("Category", ["Electronics", "Home & Kitchen", "Sports & Fitness", "Books", "Clothing", "Other"])
+            price = st.number_input("Price ($)", min_value=0.01, value=1.0, step=0.01)
+            description = st.text_area("Description", placeholder="Product description...")
+            status = st.selectbox("Status", ["active", "inactive", "discontinued"])
+
+            # Metadata
+            st.markdown("### Additional Information (Optional)")
+            brand = st.text_input("Brand")
+            warranty = st.text_input("Warranty")
+            color = st.text_input("Color")
+
+            submitted = st.form_submit_button("Create Product")
+
+            if submitted:
+                if not name:
+                    st.error("Product name is required")
+                else:
+                    metadata = {}
+                    if brand: metadata["brand"] = brand
+                    if warranty: metadata["warranty"] = warranty
+                    if color: metadata["color"] = color
+
+                    product_doc = ProductSchema.create_product(
+                        name=name,
+                        category=category,
+                        price=price,
+                        description=description,
+                        status=status,
+                        metadata=metadata
+                    )
+
+                    result = db_client.create_document(product_doc)
+                    if result["success"]:
+                        st.success(f"Product created successfully! ID: {product_doc['_id']}")
+                        st.json(product_doc)
+                    else:
+                        st.error(f"Failed to create product: {result.get('error', 'Unknown error')}")
+
+    elif doc_type == "Customer":
+        with st.form("create_customer_form"):
+            st.markdown("### Customer Information")
+            name = st.text_input("Customer Name *", placeholder="e.g., John Doe")
+            email = st.text_input("Email *", placeholder="john.doe@email.com")
+            phone = st.text_input("Phone", placeholder="+1-555-0123")
+
+            # Address
+            st.markdown("### Address (Optional)")
+            street = st.text_input("Street")
+            city = st.text_input("City")
+            zip_code = st.text_input("ZIP Code")
+            country = st.text_input("Country")
+
+            submitted = st.form_submit_button("Create Customer")
+
+            if submitted:
+                if not name or not email:
+                    st.error("Name and email are required")
+                else:
+                    address = {}
+                    if street: address["street"] = street
+                    if city: address["city"] = city
+                    if zip_code: address["zip"] = zip_code
+                    if country: address["country"] = country
+
+                    customer_doc = CustomerSchema.create_customer(
+                        name=name,
+                        email=email,
+                        phone=phone,
+                        address=address if address else None
+                    )
+
+                    result = db_client.create_document(customer_doc)
+                    if result["success"]:
+                        st.success(f"Customer created successfully! ID: {customer_doc['_id']}")
+                        st.json(customer_doc)
+                    else:
+                        st.error(f"Failed to create customer: {result.get('error', 'Unknown error')}")
+
+    elif doc_type == "Order":
+        with st.form("create_order_form"):
+            st.markdown("### Order Information")
+
+            # Get customers for dropdown
+            customers_result = db_client.find({"type": "customer"}, limit=50)
+            if customers_result["success"] and customers_result["documents"]:
+                customer_options = {f"{c['name']} ({c['email']})": c["_id"]
+                                 for c in customers_result["documents"]}
+                selected_customer = st.selectbox("Customer *", list(customer_options.keys()))
+                customer_id = customer_options[selected_customer] if selected_customer else ""
+            else:
+                customer_id = st.text_input("Customer ID *", placeholder="customer_...")
+                st.warning("No customers found in database. Please enter customer ID manually.")
+
+            status = st.selectbox("Status", ["pending", "confirmed", "shipped", "delivered", "cancelled"])
+
+            # Products - simplified for demo
+            st.markdown("### Products")
+            st.info("Simplified product entry - in a real application, you'd have a dynamic product selector")
+            product_id = st.text_input("Product ID", placeholder="product_...")
+            quantity = st.number_input("Quantity", min_value=1, value=1)
+            unit_price = st.number_input("Unit Price ($)", min_value=0.01, value=1.0)
+
+            total = quantity * unit_price
+            st.metric("Total Amount", f"${total:.2f}")
+
+            submitted = st.form_submit_button("Create Order")
+
+            if submitted:
+                if not customer_id:
+                    st.error("Customer ID is required")
+                elif not product_id:
+                    st.error("Product ID is required")
+                else:
+                    products = [{"product_id": product_id, "quantity": quantity, "price": unit_price}]
+
+                    order_doc = OrderSchema.create_order(
+                        customer_id=customer_id,
+                        products=products,
+                        total=total,
+                        status=status
+                    )
+
+                    result = db_client.create_document(order_doc)
+                    if result["success"]:
+                        st.success(f"Order created successfully! ID: {order_doc['_id']}")
+                        st.json(order_doc)
+                    else:
+                        st.error(f"Failed to create order: {result.get('error', 'Unknown error')}")
+
+def display_read_interface(db_client):
+    """Display interface for reading documents"""
+    st.subheader("📖 Read Documents")
+
+    read_method = st.radio("Read Method", ["By ID", "Query by Type", "Advanced Search"])
+
+    if read_method == "By ID":
+        doc_id = st.text_input("Document ID", placeholder="e.g., product_12345...")
+
+        if st.button("Get Document") and doc_id:
+            result = db_client.read_document(doc_id)
+            if result["success"]:
+                st.success("Document found!")
+                st.json(result["document"])
+            else:
+                st.error(f"Document not found: {result.get('error', 'Unknown error')}")
+
+    elif read_method == "Query by Type":
+        doc_type = st.selectbox("Document Type", ["product", "customer", "order", "analytics_event"])
+        limit = st.slider("Number of results", 1, 50, 10)
+
+        if st.button("Query Documents"):
+            result = db_client.find({"type": doc_type}, limit=limit)
+            if result["success"]:
+                documents = result["documents"]
+                st.success(f"Found {len(documents)} {doc_type} documents")
+
+                for i, doc in enumerate(documents):
+                    with st.expander(f"{doc_type.title()} {i+1}: {doc.get('_id', 'No ID')[:20]}..."):
+                        st.json(doc)
+            else:
+                st.error(f"Query failed: {result.get('error', 'Unknown error')}")
+
+    elif read_method == "Advanced Search":
+        st.markdown("### Custom Query Builder")
+
+        query_json = st.text_area(
+            "CouchDB Mango Query (JSON)",
+            value='{"type": "product", "price": {"$gt": 50}}',
+            height=100,
+            help="Enter a valid CouchDB Mango query"
+        )
+        limit = st.slider("Limit results", 1, 100, 20)
+
+        if st.button("Execute Query"):
+            try:
+                query = json.loads(query_json)
+                result = db_client.find(query, limit=limit)
+
+                if result["success"]:
+                    documents = result["documents"]
+                    st.success(f"Query executed successfully! Found {len(documents)} documents")
+
+                    if documents:
+                        for i, doc in enumerate(documents):
+                            with st.expander(f"Document {i+1}: {doc.get('_id', 'No ID')[:20]}..."):
+                                st.json(doc)
+                    else:
+                        st.info("No documents matched the query")
+                else:
+                    st.error(f"Query failed: {result.get('error', 'Unknown error')}")
+            except json.JSONDecodeError:
+                st.error("Invalid JSON query format")
+
+def display_update_interface(db_client):
+    """Display interface for updating documents"""
+    st.subheader("✏️ Update Documents")
+
+    # Step 1: Get document
+    st.markdown("### Step 1: Find Document to Update")
+    doc_id = st.text_input("Document ID", placeholder="e.g., product_12345...")
+
+    if doc_id and st.button("Load Document"):
+        st.session_state.update_doc_id = doc_id
+        result = db_client.read_document(doc_id)
+        if result["success"]:
+            st.session_state.update_document = result["document"]
+            st.success("Document loaded successfully!")
+        else:
+            st.error(f"Document not found: {result.get('error', 'Unknown error')}")
+            if "update_document" in st.session_state:
+                del st.session_state.update_document
+
+    # Step 2: Update document
+    if hasattr(st.session_state, 'update_document'):
+        st.markdown("### Step 2: Update Document Fields")
+        doc = st.session_state.update_document
+        doc_type = doc.get("type", "unknown")
+
+        st.info(f"Updating {doc_type} document: {doc.get('_id', 'No ID')}")
+
+        if doc_type == "product":
+            with st.form("update_product_form"):
+                name = st.text_input("Product Name", value=doc.get("name", ""))
+                category = st.text_input("Category", value=doc.get("category", ""))
+                price = st.number_input("Price ($)", value=doc.get("price", 0.0), min_value=0.01)
+                description = st.text_area("Description", value=doc.get("description", ""))
+                status = st.selectbox("Status", ["active", "inactive", "discontinued"],
+                                    index=["active", "inactive", "discontinued"].index(doc.get("status", "active")))
+
+                submitted = st.form_submit_button("Update Product")
+
+                if submitted:
+                    updated_doc = doc.copy()
+                    updated_doc.update({
+                        "name": name,
+                        "category": category,
+                        "price": price,
+                        "description": description,
+                        "status": status,
+                        "updated_at": datetime.now().isoformat()
+                    })
+
+                    result = db_client.update_document(updated_doc)
+                    if result["success"]:
+                        st.success("Product updated successfully!")
+                        st.json(updated_doc)
+                        del st.session_state.update_document
+                    else:
+                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+
+        elif doc_type == "customer":
+            with st.form("update_customer_form"):
+                name = st.text_input("Customer Name", value=doc.get("name", ""))
+                email = st.text_input("Email", value=doc.get("email", ""))
+                phone = st.text_input("Phone", value=doc.get("phone", ""))
+
+                address = doc.get("address", {})
+                street = st.text_input("Street", value=address.get("street", ""))
+                city = st.text_input("City", value=address.get("city", ""))
+
+                submitted = st.form_submit_button("Update Customer")
+
+                if submitted:
+                    updated_doc = doc.copy()
+                    updated_doc.update({
+                        "name": name,
+                        "email": email,
+                        "phone": phone,
+                        "address": {"street": street, "city": city},
+                        "updated_at": datetime.now().isoformat()
+                    })
+
+                    result = db_client.update_document(updated_doc)
+                    if result["success"]:
+                        st.success("Customer updated successfully!")
+                        st.json(updated_doc)
+                        del st.session_state.update_document
+                    else:
+                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+
+        elif doc_type == "order":
+            with st.form("update_order_form"):
+                status = st.selectbox("Status", ["pending", "confirmed", "shipped", "delivered", "cancelled"],
+                                    index=["pending", "confirmed", "shipped", "delivered", "cancelled"].index(doc.get("status", "pending")))
+                total = st.number_input("Total Amount", value=doc.get("total", 0.0), min_value=0.01)
+
+                submitted = st.form_submit_button("Update Order")
+
+                if submitted:
+                    updated_doc = doc.copy()
+                    updated_doc.update({
+                        "status": status,
+                        "total": total,
+                        "updated_at": datetime.now().isoformat()
+                    })
+
+                    result = db_client.update_document(updated_doc)
+                    if result["success"]:
+                        st.success("Order updated successfully!")
+                        st.json(updated_doc)
+                        del st.session_state.update_document
+                    else:
+                        st.error(f"Update failed: {result.get('error', 'Unknown error')}")
+
+        else:
+            st.warning(f"Update interface not implemented for document type: {doc_type}")
+            st.json(doc)
+
+def display_delete_interface(db_client):
+    """Display interface for deleting documents"""
+    st.subheader("🗑️ Delete Documents")
+    st.warning("⚠️ This action cannot be undone. Please be careful!")
+
+    delete_method = st.radio("Delete Method", ["Single Document", "Bulk Delete by Query"])
+
+    if delete_method == "Single Document":
+        doc_id = st.text_input("Document ID to Delete", placeholder="e.g., product_12345...")
+
+        # Preview document before deletion
+        if doc_id and st.button("Preview Document"):
+            result = db_client.read_document(doc_id)
+            if result["success"]:
+                st.json(result["document"])
+                st.session_state.delete_preview = result["document"]
+            else:
+                st.error(f"Document not found: {result.get('error', 'Unknown error')}")
+
+        # Confirm deletion
+        if hasattr(st.session_state, 'delete_preview'):
+            st.error("⚠️ You are about to delete this document:")
+            confirm = st.checkbox("I confirm I want to delete this document")
+
+            if confirm and st.button("🗑️ Delete Document", type="primary"):
+                result = db_client.delete_document(st.session_state.delete_preview)
+                if result["success"]:
+                    st.success("Document deleted successfully!")
+                    del st.session_state.delete_preview
+                else:
+                    st.error(f"Delete failed: {result.get('error', 'Unknown error')}")
+
+    elif delete_method == "Bulk Delete by Query":
+        st.markdown("### Bulk Delete by Document Type")
+        doc_type = st.selectbox("Document Type to Delete", ["product", "customer", "order", "analytics_event"])
+
+        # Additional filters
+        with st.expander("Additional Filters (Optional)"):
+            if doc_type == "product":
+                status_filter = st.selectbox("Status Filter", ["All", "active", "inactive", "discontinued"])
+                category_filter = st.text_input("Category Filter (optional)")
+            elif doc_type == "order":
+                status_filter = st.selectbox("Status Filter", ["All", "pending", "confirmed", "shipped", "delivered", "cancelled"])
+
+        # Preview what will be deleted
+        if st.button("Preview Documents to Delete"):
+            query = {"type": doc_type}
+
+            if doc_type == "product":
+                if status_filter != "All":
+                    query["status"] = status_filter
+                if category_filter:
+                    query["category"] = category_filter
+            elif doc_type == "order":
+                if status_filter != "All":
+                    query["status"] = status_filter
+
+            result = db_client.find(query, limit=50)
+            if result["success"]:
+                documents = result["documents"]
+                st.info(f"Found {len(documents)} documents that would be deleted:")
+
+                for doc in documents[:5]:  # Show first 5
+                    st.json(doc)
+
+                if len(documents) > 5:
+                    st.info(f"... and {len(documents) - 5} more documents")
+
+                st.session_state.bulk_delete_docs = documents
+                st.session_state.bulk_delete_query = query
+            else:
+                st.error(f"Query failed: {result.get('error', 'Unknown error')}")
+
+        # Confirm bulk deletion
+        if hasattr(st.session_state, 'bulk_delete_docs'):
+            docs_count = len(st.session_state.bulk_delete_docs)
+            st.error(f"⚠️ You are about to delete {docs_count} documents!")
+
+            confirm_text = st.text_input(f"Type 'DELETE {docs_count} DOCUMENTS' to confirm:")
+
+            if confirm_text == f"DELETE {docs_count} DOCUMENTS" and st.button("🗑️ BULK DELETE", type="primary"):
+                success_count = 0
+                error_count = 0
+
+                for doc in st.session_state.bulk_delete_docs:
+                    result = db_client.delete_document(doc)
+                    if result["success"]:
+                        success_count += 1
+                    else:
+                        error_count += 1
+
+                if error_count == 0:
+                    st.success(f"Successfully deleted {success_count} documents!")
+                else:
+                    st.warning(f"Deleted {success_count} documents, {error_count} failed")
+
+                del st.session_state.bulk_delete_docs
+                del st.session_state.bulk_delete_query
 
 if __name__ == "__main__":
     main()
